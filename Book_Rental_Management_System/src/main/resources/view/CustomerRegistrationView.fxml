@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.CustomerRegistrationFormController">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1280.0">
+         <image>
+            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/Library%20Frame.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="899.0" layoutY="92.0" text="Customer Registration">
+         <font>
+            <Font name="Arial Bold" size="32.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtNIC" layoutX="628.0" layoutY="183.0" prefHeight="53.0" prefWidth="248.0" promptText="  National Identity Number" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></JFXTextField>
+      <JFXTextField fx:id="txtName" layoutX="628.0" layoutY="263.0" prefHeight="53.0" prefWidth="248.0" promptText="  Name" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
+      <DatePicker fx:id="dateChooserTxt" layoutX="628.0" layoutY="354.0" prefHeight="46.0" prefWidth="248.0" />
+      <JFXTextField fx:id="txtAge" layoutX="628.0" layoutY="427.0" prefHeight="53.0" prefWidth="248.0" promptText="  Age" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
+      <JFXTextField fx:id="txtPhoneNumber" layoutX="628.0" layoutY="507.0" prefHeight="53.0" prefWidth="248.0" promptText="  Phone Number" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
+      <JFXTextField fx:id="txtEmailAddress" layoutX="628.0" layoutY="591.0" prefHeight="53.0" prefWidth="248.0" promptText="  Email Address" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
+      <JFXTextField fx:id="txtHomeAddress" layoutX="628.0" layoutY="666.0" prefHeight="53.0" prefWidth="248.0" promptText="  Home Address" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
+      <JFXButton layoutX="1077.0" layoutY="719.0" onAction="#btnRegisterOnAction" prefHeight="46.0" prefWidth="129.0" style="-fx-background-color: #4A2515;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXCheckBox fx:id="checkIFstudent" layoutX="1082.0" layoutY="682.0" text="Student" />
+      <JFXButton layoutX="1143.0" layoutY="9.0" onAction="#btnCloseOnAction" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #4A2515;" text="      ×" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Lucida Console" size="22.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
