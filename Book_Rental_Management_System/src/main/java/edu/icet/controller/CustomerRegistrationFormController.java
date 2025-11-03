@@ -56,6 +56,16 @@ public class CustomerRegistrationFormController implements Initializable {
 
     }
 
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

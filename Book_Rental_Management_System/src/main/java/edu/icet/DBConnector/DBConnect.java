@@ -12,14 +12,12 @@ public class DBConnect {
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/book_rental_management_system","root","1234");
 
     }
-    private DBConnect getDbConnection() throws SQLException {
+    public static DBConnect getInstance() throws SQLException {
         return null == instance? instance = new DBConnect():instance;
 
-
     }
-    private Connection getConnection(){
+
+    public Connection getConnection() {
         return connection;
-
     }
-
 }

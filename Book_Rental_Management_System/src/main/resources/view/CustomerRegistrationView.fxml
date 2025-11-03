@@ -6,6 +6,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,32 +25,32 @@
             <Font name="Arial Bold" size="32.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtNIC" layoutX="628.0" layoutY="183.0" prefHeight="53.0" prefWidth="248.0" promptText="  National Identity Number" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtNIC" layoutX="624.0" layoutY="146.0" prefHeight="53.0" prefWidth="248.0" promptText="  National Identity Number" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets></JFXTextField>
-      <JFXTextField fx:id="txtName" layoutX="628.0" layoutY="263.0" prefHeight="53.0" prefWidth="248.0" promptText="  Name" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtName" layoutX="624.0" layoutY="226.0" prefHeight="53.0" prefWidth="248.0" promptText="  Name" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <DatePicker fx:id="dateChooserTxt" layoutX="628.0" layoutY="354.0" prefHeight="46.0" prefWidth="248.0" />
-      <JFXTextField fx:id="txtAge" layoutX="628.0" layoutY="427.0" prefHeight="53.0" prefWidth="248.0" promptText="  Age" style="-fx-background-color: white;">
+      <DatePicker fx:id="dateChooserTxt" layoutX="624.0" layoutY="317.0" prefHeight="46.0" prefWidth="248.0" />
+      <JFXTextField fx:id="txtAge" layoutX="624.0" layoutY="390.0" prefHeight="53.0" prefWidth="248.0" promptText="  Age" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <JFXTextField fx:id="txtPhoneNumber" layoutX="628.0" layoutY="507.0" prefHeight="53.0" prefWidth="248.0" promptText="  Phone Number" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtPhoneNumber" layoutX="624.0" layoutY="470.0" prefHeight="53.0" prefWidth="248.0" promptText="  Phone Number" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <JFXTextField fx:id="txtEmailAddress" layoutX="628.0" layoutY="591.0" prefHeight="53.0" prefWidth="248.0" promptText="  Email Address" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtEmailAddress" layoutX="624.0" layoutY="554.0" prefHeight="53.0" prefWidth="248.0" promptText="  Email Address" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <JFXTextField fx:id="txtHomeAddress" layoutX="628.0" layoutY="666.0" prefHeight="53.0" prefWidth="248.0" promptText="  Home Address" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtHomeAddress" layoutX="624.0" layoutY="629.0" prefHeight="53.0" prefWidth="248.0" promptText="  Home Address" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -62,6 +64,27 @@
       <JFXButton layoutX="1143.0" layoutY="9.0" onAction="#btnCloseOnAction" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #4A2515;" text="      ×" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="22.0" />
+         </font>
+      </JFXButton>
+      <TableView layoutX="20.0" layoutY="56.0" prefHeight="200.0" prefWidth="476.0" style="-fx-background-color: gold;">
+        <columns>
+          <TableColumn prefWidth="49.0" text="NIC" />
+          <TableColumn prefWidth="59.0" text="Name" />
+            <TableColumn prefWidth="41.0" text="DOB" />
+            <TableColumn prefWidth="50.0" text="Age" />
+            <TableColumn prefWidth="93.0" text="PhoneNo" />
+            <TableColumn prefWidth="63.0" text="Email" />
+            <TableColumn prefWidth="120.0" text="Home Address" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="808.0" layoutY="719.0" onAction="#btnDeleteOnAction" prefHeight="46.0" prefWidth="129.0" style="-fx-background-color: #4A2515;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="624.0" layoutY="719.0" onAction="#btnUpdateOnAction" prefHeight="46.0" prefWidth="129.0" style="-fx-background-color: #4A2515;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
          </font>
       </JFXButton>
    </children>
