@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.LibraryDashboardController">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1290.0" layoutX="-1.0">
+         <image>
+            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/24a3b2a8be983c30d03cb51d683a1532.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="274.0" layoutY="65.0" onAction="#btnCustomerOnAction" prefHeight="222.0" prefWidth="317.0" ripplerFill="WHITE" style="-fx-background-color: #0a5193;" text="Customer &#10;Registration" textAlignment="CENTER" textFill="WHITE">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Arial Bold Italic" size="36.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="705.0" layoutY="65.0" onAction="#btnBookRegOnAction" prefHeight="222.0" prefWidth="317.0" ripplerFill="WHITE" style="-fx-background-color: #0a5193;" text="Book &#10;Registration" textAlignment="CENTER" textFill="WHITE">
+         <opaqueInsets>
+            <Insets top="12.0" />
+         </opaqueInsets>
+         <font>
+            <Font name="Arial Bold Italic" size="36.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="274.0" layoutY="366.0" onAction="#btnRentalBooksOnAction" prefHeight="222.0" prefWidth="317.0" ripplerFill="WHITE" style="-fx-background-color: #0a5193;" text="Rental&#10;Books" textAlignment="CENTER" textFill="WHITE">
+         <opaqueInsets>
+            <Insets top="12.0" />
+         </opaqueInsets>
+         <font>
+            <Font name="Arial Bold Italic" size="36.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="705.0" layoutY="366.0" onAction="#btnReturnBooksOnAction" prefHeight="222.0" prefWidth="317.0" ripplerFill="WHITE" style="-fx-background-color: #0a5193;" text="Return&#10;Books" textAlignment="CENTER" textFill="WHITE">
+         <opaqueInsets>
+            <Insets top="12.0" />
+         </opaqueInsets>
+         <font>
+            <Font name="Arial Bold Italic" size="36.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="526.0" layoutY="106.0">
+         <image>
+            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/boy.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="153.0" layoutX="978.0" layoutY="104.0">
+         <image>
+            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/books.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="141.0" fitWidth="144.0" layoutX="526.0" layoutY="407.0">
+         <image>
+            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/book_4715276.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="163.0" fitWidth="159.0" layoutX="960.0" layoutY="402.0">
+         <image>
+            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/return_5597045.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="1151.0" layoutY="17.0" onAction="#btnCloseOnAction" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #0a5193;" text="      ×" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Lucida Console" size="22.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
