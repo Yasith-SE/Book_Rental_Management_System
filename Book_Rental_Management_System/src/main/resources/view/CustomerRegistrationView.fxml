@@ -66,15 +66,15 @@
             <Font name="Lucida Console" size="22.0" />
          </font>
       </JFXButton>
-      <TableView layoutX="20.0" layoutY="56.0" prefHeight="200.0" prefWidth="476.0" style="-fx-background-color: gold;">
+      <TableView fx:id="customerTblView" layoutX="20.0" layoutY="56.0" prefHeight="200.0" prefWidth="476.0" style="-fx-background-color: gold;">
         <columns>
-          <TableColumn prefWidth="49.0" text="NIC" />
-          <TableColumn prefWidth="59.0" text="Name" />
-            <TableColumn prefWidth="41.0" text="DOB" />
-            <TableColumn prefWidth="50.0" text="Age" />
-            <TableColumn prefWidth="93.0" text="PhoneNo" />
-            <TableColumn prefWidth="63.0" text="Email" />
-            <TableColumn prefWidth="120.0" text="Home Address" />
+          <TableColumn fx:id="colNic" prefWidth="49.0" text="NIC" />
+          <TableColumn fx:id="colName" prefWidth="59.0" text="Name" />
+            <TableColumn fx:id="colDOB" prefWidth="41.0" text="DOB" />
+            <TableColumn fx:id="colAge" prefWidth="50.0" text="Age" />
+            <TableColumn fx:id="colPhoneNumber" prefWidth="93.0" text="PhoneNo" />
+            <TableColumn fx:id="colEmail" prefWidth="63.0" text="Email" />
+            <TableColumn fx:id="colHomeAdress" prefWidth="120.0" text="Home Address" />
         </columns>
       </TableView>
       <JFXButton layoutX="808.0" layoutY="719.0" onAction="#btnDeleteOnAction" prefHeight="46.0" prefWidth="129.0" style="-fx-background-color: #4A2515;" text="Delete" textFill="WHITE">
