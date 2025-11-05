@@ -51,6 +51,17 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
             throw new RuntimeException(e);
         }
     }
+
+    public void updateCustomer(CustomerRegistration customerRegistration){
+        try {
+            customerRegistrationRepository.updateCustomer(customerRegistration);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 }
 
 

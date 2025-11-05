@@ -10,4 +10,7 @@ public interface CustomerRegistrationRepository {
     void addCustomerReg(CustomerRegistration customerRegistration) throws SQLException;
 
     ResultSet allCustomers() throws SQLException;
+
+    void updateCustomer(CustomerRegistration customerUpdate) throws SQLException;
+
 }

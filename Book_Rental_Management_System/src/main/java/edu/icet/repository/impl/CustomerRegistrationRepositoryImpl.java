@@ -41,5 +41,11 @@ public class CustomerRegistrationRepositoryImpl implements CustomerRegistrationR
 
 
 
+    public void updateCustomer(CustomerRegistration customerUpdate) throws SQLException {
+        String SQL ="UPDATE customer_registration SET Name = ?, DOB = ?, Age = ?, PhoneNumber = ?, Cust_Email = ?, Cust_HomeAdress = ? WHERE NIC = ?; ";
+
+        Connection connection = DBConnection.getInstance().getConnection();
+    }
+
 
 }
