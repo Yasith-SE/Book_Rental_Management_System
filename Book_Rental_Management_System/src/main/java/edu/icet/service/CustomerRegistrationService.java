@@ -6,6 +6,9 @@ import javafx.collections.ObservableList;
 public interface CustomerRegistrationService {
 
     void addCustomerReg(CustomerRegistration customerRegistration);
+
+    void updateCustomer(CustomerRegistration customerRegistration);
+
     ObservableList<CustomerRegistration> allCustomerResultSet();
 
 }
