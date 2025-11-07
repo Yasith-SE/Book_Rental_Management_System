@@ -34,6 +34,7 @@ public class CustomerRegistrationRepositoryImpl implements CustomerRegistrationR
            preparedStatement.setObject(5,customerRegistration.getPhoneNo());
            preparedStatement.setObject(6,customerRegistration.getEmailAddress());
            preparedStatement.setObject(7,customerRegistration.getHomeAddress());
+           preparedStatement.setObject(8,customerRegistration.getAdultStudent());
 
            preparedStatement.executeUpdate();
 
@@ -41,10 +42,22 @@ public class CustomerRegistrationRepositoryImpl implements CustomerRegistrationR
 
 
 
+
+
     public void updateCustomer(CustomerRegistration customerUpdate) throws SQLException {
         String SQL ="UPDATE customer_registration SET Name = ?, DOB = ?, Age = ?, PhoneNumber = ?, Cust_Email = ?, Cust_HomeAdress = ? WHERE NIC = ?; ";
 
         Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedUpdateStatement = connection.prepareStatement(SQL);
+        preparedUpdateStatement.setObject(1,customerUpdate.getNIC());
+        preparedUpdateStatement.setObject(2,customerUpdate.getFullName());
+        preparedUpdateStatement.setObject(3,customerUpdate.getDob());
+        preparedUpdateStatement.setObject(4,customerUpdate.getAge());
+        preparedUpdateStatement.setObject(5,customerUpdate.getPhoneNo());
+        preparedUpdateStatement.setObject(6,customerUpdate.getEmailAddress());
+        preparedUpdateStatement.setObject(7,customerUpdate.getHomeAddress());
+        preparedUpdateStatement.executeUpdate();
+
     }
 
 

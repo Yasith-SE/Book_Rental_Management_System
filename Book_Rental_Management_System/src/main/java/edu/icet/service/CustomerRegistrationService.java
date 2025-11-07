@@ -7,8 +7,11 @@ public interface CustomerRegistrationService {
 
     void addCustomerReg(CustomerRegistration customerRegistration);
 
+    boolean checkMemberID(CustomerRegistration memberId);
+
     void updateCustomer(CustomerRegistration customerRegistration);
 
     ObservableList<CustomerRegistration> allCustomerResultSet();
+
 
 }
