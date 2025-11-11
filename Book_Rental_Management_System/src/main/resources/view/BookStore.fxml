@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.BookStoreController">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1280.0">
+         <image>
+            <Image url="@../../../../../../../../Art%20Works/Yasith/3x/Book%20frame%202.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="1087.0" layoutY="729.0" onAction="#btnBookRegisterOnAction" prefHeight="46.0" prefWidth="129.0" style="-fx-background-color: cyan;" text="Register">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1142.0" layoutY="9.0" onAction="#btnCloseOnAction" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: cyan;" text="      ×" textAlignment="CENTER">
+         <font>
+            <Font name="Lucida Console" size="22.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="818.0" layoutY="729.0" onAction="#btnBookDeleteOnAction" prefHeight="46.0" prefWidth="129.0" style="-fx-background-color: cyan;" text="Delete">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="634.0" layoutY="729.0" onAction="#btnBookUpdateOnAction" prefHeight="46.0" prefWidth="129.0" style="-fx-background-color: cyan;" text="Update">
+         <font>
+            <Font name="Arial Bold Italic" size="20.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="949.0" layoutY="65.0" style="-fx-background-color: cyan;" text=" Book ">
+         <font>
+            <Font name="System Bold" size="45.0" />
+         </font>
+      </Label>
+      <Label layoutX="1077.0" layoutY="66.0" text=" Register " textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="45.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtBookId" layoutX="639.0" layoutY="160.0" prefHeight="53.0" prefWidth="248.0" promptText="  BookId" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
+      <JFXTextField fx:id="txtBookTitle" layoutX="639.0" layoutY="268.0" prefHeight="53.0" prefWidth="248.0" promptText="  Book Title" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
+      <JFXTextField fx:id="txtBookAuthor" layoutX="639.0" layoutY="376.0" prefHeight="53.0" prefWidth="248.0" promptText="  Author" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
+      <JFXTextField fx:id="txtBookQuantity" layoutX="639.0" layoutY="549.0" prefHeight="53.0" prefWidth="248.0" promptText="  Quantity" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
+      <Label layoutX="639.0" layoutY="479.0" text="Category" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="comboBookCategory" focusColor="WHITE" layoutX="735.0" layoutY="474.0" prefHeight="35.0" prefWidth="146.0" promptText="  Novel" style="-fx-background-color: white;" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtBookPrice" layoutX="639.0" layoutY="635.0" prefHeight="53.0" prefWidth="248.0" promptText="  Price" style="-fx-background-color: white;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXTextField>
+   </children>
+</AnchorPane>

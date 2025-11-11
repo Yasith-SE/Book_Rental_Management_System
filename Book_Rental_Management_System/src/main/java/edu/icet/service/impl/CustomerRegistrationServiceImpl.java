@@ -12,7 +12,7 @@ import java.sql.*;
 
 public class CustomerRegistrationServiceImpl implements CustomerRegistrationService {
 
-
+    CustomerRegistration customerRegistrations = new CustomerRegistration();
     CustomerRegistrationRepository customerRegistrationRepository = new CustomerRegistrationRepositoryImpl();
 
     @Override
@@ -64,6 +64,19 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
         }
 
     }
+    @Override
+    public void deleteCustomer(String nic){
+        try {
+            customerRegistrationRepository.deleteCustomer(nic);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+
     @Override
     public boolean checkMemberID(CustomerRegistration memberId){
         boolean memberIdExists = false;

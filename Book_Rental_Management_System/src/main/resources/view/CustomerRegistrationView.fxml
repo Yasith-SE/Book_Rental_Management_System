@@ -61,7 +61,7 @@
             <Font name="Lucida Console" size="22.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="customerTblView" layoutX="20.0" layoutY="56.0" prefHeight="200.0" prefWidth="476.0" style="-fx-background-color: gold;">
+      <TableView fx:id="customerTblView" layoutY="50.0" prefHeight="192.0" prefWidth="617.0" style="-fx-background-color: gold;">
         <columns>
           <TableColumn fx:id="colNic" prefWidth="49.0" text="NIC" />
           <TableColumn fx:id="colName" prefWidth="59.0" text="Name" />
@@ -70,6 +70,7 @@
             <TableColumn fx:id="colPhoneNumber" prefWidth="93.0" text="PhoneNo" />
             <TableColumn fx:id="colEmail" prefWidth="63.0" text="Email" />
             <TableColumn fx:id="colHomeAdress" prefWidth="120.0" text="Home Address" />
+            <TableColumn fx:id="colSelectAdultOrStudent" prefWidth="140.0" text="Adult or Student" />
         </columns>
       </TableView>
       <JFXButton layoutX="808.0" layoutY="719.0" onAction="#btnDeleteOnAction" prefHeight="46.0" prefWidth="129.0" style="-fx-background-color: #4A2515;" text="Delete" textFill="WHITE">
@@ -93,5 +94,6 @@
          </font>
       </Label>
       <Label fx:id="lblSelectAdultStudent" layoutX="899.0" layoutY="240.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: silver;" />
+      <Label fx:id="lblAge" layoutX="894.0" layoutY="404.0" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: silver;" />
    </children>
 </AnchorPane>

@@ -23,7 +23,7 @@ public class CustomerRegistrationRepositoryImpl implements CustomerRegistrationR
 
 
     public void addCustomerReg(CustomerRegistration customerRegistration) throws SQLException {
-        String SQL ="INSERT INTO customer_registration VALUES(?,?,?,?,?,?,?);";
+        String SQL ="INSERT INTO customer_registration VALUES(?,?,?,?,?,?,?,?);";
 
            Connection connection =  DBConnection.getInstance().getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
@@ -58,6 +58,14 @@ public class CustomerRegistrationRepositoryImpl implements CustomerRegistrationR
         preparedUpdateStatement.setObject(7,customerUpdate.getHomeAddress());
         preparedUpdateStatement.executeUpdate();
 
+    }
+    public void deleteCustomer(String nic) throws SQLException {
+        String SQL="DELETE FROM customer_registration WHERE NIC = ? ;";
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement  = connection.prepareStatement(SQL);
+        preparedStatement.setObject(1,nic);
+        preparedStatement.executeUpdate();
     }
 
 

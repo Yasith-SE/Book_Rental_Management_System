@@ -14,5 +14,6 @@ public interface CustomerRegistrationRepository {
     ResultSet allCustomers() throws SQLException;
 
     void updateCustomer(CustomerRegistration customerUpdate) throws SQLException;
+    void deleteCustomer(String nic) throws SQLException;
 
 }

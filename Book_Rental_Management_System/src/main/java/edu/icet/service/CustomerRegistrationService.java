@@ -11,6 +11,9 @@ public interface CustomerRegistrationService {
 
     void updateCustomer(CustomerRegistration customerRegistration);
 
+    void deleteCustomer(String nic);
+
+
     ObservableList<CustomerRegistration> allCustomerResultSet();
 
 
