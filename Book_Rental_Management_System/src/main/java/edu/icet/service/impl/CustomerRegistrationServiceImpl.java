@@ -1,5 +1,6 @@
 package edu.icet.service.impl;
 
+import edu.icet.DBConnector.DBConnection;
 import edu.icet.model.CustomerRegistration;
 import edu.icet.repository.CustomerRegistrationRepository;
 import edu.icet.repository.impl.CustomerRegistrationRepositoryImpl;
@@ -7,12 +8,11 @@ import edu.icet.service.CustomerRegistrationService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class CustomerRegistrationServiceImpl implements CustomerRegistrationService {
 
-
+    CustomerRegistration customerRegistrations = new CustomerRegistration();
     CustomerRegistrationRepository customerRegistrationRepository = new CustomerRegistrationRepositoryImpl();
 
     @Override
@@ -30,7 +30,8 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
                         resultSet.getInt("Age"),
                         resultSet.getInt("PhoneNumber"),
                         resultSet.getString("Cust_Email"),
-                        resultSet.getString("Cust_HomeAdress")
+                        resultSet.getString("Cust_HomeAdress"),
+                        resultSet.getString("Adult_Student")
 
                 ));
 
@@ -46,12 +47,15 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
     @Override
     public void addCustomerReg(CustomerRegistration customerRegistration) {
         try {
-            customerRegistrationRepository.addCustomerReg(customerRegistration);
+           customerRegistrationRepository.addCustomerReg(customerRegistration);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
 
+
+    @Override
     public void updateCustomer(CustomerRegistration customerRegistration){
         try {
             customerRegistrationRepository.updateCustomer(customerRegistration);
@@ -59,6 +63,42 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
             throw new RuntimeException(e);
         }
 
+    }
+    @Override
+    public void deleteCustomer(String nic){
+        try {
+            customerRegistrationRepository.deleteCustomer(nic);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+
+    @Override
+    public boolean checkMemberID(CustomerRegistration memberId){
+        boolean memberIdExists = false;
+
+        try {
+            Connection conn = DBConnection.getInstance().getConnection();
+            Statement stm = conn.createStatement();
+            ResultSet rst = stm.executeQuery("SELECT * FROM customer_registration WHERE NIC='"+memberId+"';");
+
+            String id;
+            if (rst.next()){
+
+                id = rst.getString("NIC");
+                if(id.equals(Integer.valueOf(String.valueOf(memberId))))
+                    memberIdExists = true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return memberIdExists;
     }
 
 

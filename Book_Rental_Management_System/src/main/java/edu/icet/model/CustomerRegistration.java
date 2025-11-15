@@ -20,5 +20,6 @@ public class CustomerRegistration {
     private int phoneNo;
     private String emailAddress;
     private String homeAddress;
+    private String adultStudent;
 
 }
