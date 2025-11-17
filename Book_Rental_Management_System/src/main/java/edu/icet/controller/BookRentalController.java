@@ -1,0 +1,71 @@
+package edu.icet.controller;
+
+import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.input.KeyEvent;
+
+public class BookRentalController {
+
+    @FXML
+    private JFXTextField txtBookId;
+
+    @FXML
+    private JFXTextField txtBookQuantity;
+
+    @FXML
+    private JFXTextField txtBookRentalCost;
+
+    @FXML
+    private JFXTextField txtBookRentalId;
+
+    @FXML
+    private JFXTextField txtCustomerName;
+
+    @FXML
+    private JFXTextField txtNic;
+
+    @FXML
+    private JFXTextField txtRentalBookSearch;
+
+    @FXML
+    void btmBuyRentalBookOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnAddToBookBucketOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnAddToBookBucketOnActionn(KeyEvent event) {
+
+    }
+
+    @FXML
+    void btnBuyRentalBookOnAction(KeyEvent event) {
+
+    }
+
+    @FXML
+    void btnCancelBookOrderOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnCancelBookOrderOnActionn(KeyEvent event) {
+
+    }
+
+    @FXML
+    void searchTextFieldOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtBookTitle(ActionEvent event) {
+
+    }
+
+}

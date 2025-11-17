@@ -17,35 +17,35 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="1280.0">
          <image>
-            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/Library%20Frame.png" />
+            <Image url="@images/Library%20Frame.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtNIC" layoutX="624.0" layoutY="146.0" prefHeight="53.0" prefWidth="248.0" promptText="  National Identity Number" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtNIC" layoutX="704.0" layoutY="146.0" prefHeight="53.0" prefWidth="248.0" promptText="  National Identity Number" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets></JFXTextField>
-      <JFXTextField fx:id="txtName" layoutX="624.0" layoutY="226.0" prefHeight="53.0" prefWidth="248.0" promptText="  Name" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtName" layoutX="704.0" layoutY="226.0" prefHeight="53.0" prefWidth="248.0" promptText="  Name" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <DatePicker fx:id="dateChooserTxt" layoutX="624.0" layoutY="317.0" prefHeight="46.0" prefWidth="248.0" />
-      <JFXTextField fx:id="txtAge" layoutX="624.0" layoutY="390.0" prefHeight="53.0" prefWidth="248.0" promptText="  Age" style="-fx-background-color: white;">
+      <DatePicker fx:id="dateChooserTxt" layoutX="704.0" layoutY="317.0" prefHeight="46.0" prefWidth="248.0" />
+      <JFXTextField fx:id="txtAge" layoutX="704.0" layoutY="390.0" prefHeight="53.0" prefWidth="248.0" promptText="  Age" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <JFXTextField fx:id="txtPhoneNumber" layoutX="624.0" layoutY="470.0" prefHeight="53.0" prefWidth="248.0" promptText="  Phone Number" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtPhoneNumber" layoutX="704.0" layoutY="470.0" prefHeight="53.0" prefWidth="248.0" promptText="  Phone Number" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <JFXTextField fx:id="txtEmailAddress" layoutX="624.0" layoutY="554.0" prefHeight="53.0" prefWidth="248.0" promptText="  Email Address" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtEmailAddress" layoutX="704.0" layoutY="554.0" prefHeight="53.0" prefWidth="248.0" promptText="  Email Address" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </JFXTextField>
-      <JFXTextField fx:id="txtHomeAddress" layoutX="624.0" layoutY="629.0" prefHeight="53.0" prefWidth="248.0" promptText="  Home Address" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtHomeAddress" layoutX="704.0" layoutY="629.0" prefHeight="53.0" prefWidth="248.0" promptText="  Home Address" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -61,7 +61,7 @@
             <Font name="Lucida Console" size="22.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="customerTblView" layoutY="50.0" prefHeight="192.0" prefWidth="617.0" style="-fx-background-color: gold;">
+      <TableView fx:id="customerTblView" layoutX="23.0" layoutY="253.0" prefHeight="192.0" prefWidth="617.0" style="-fx-background-color: gold;">
         <columns>
           <TableColumn fx:id="colNic" prefWidth="49.0" text="NIC" />
           <TableColumn fx:id="colName" prefWidth="59.0" text="Name" />
@@ -93,7 +93,7 @@
             <Font name="System Bold" size="45.0" />
          </font>
       </Label>
-      <Label fx:id="lblSelectAdultStudent" layoutX="899.0" layoutY="240.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: silver;" />
-      <Label fx:id="lblAge" layoutX="894.0" layoutY="404.0" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: silver;" />
+      <Label fx:id="lblSelectAdultStudent" layoutX="979.0" layoutY="240.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: silver;" />
+      <Label fx:id="lblAge" layoutX="974.0" layoutY="404.0" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: silver;" />
    </children>
 </AnchorPane>

@@ -22,7 +22,6 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
 
 
 public class CustomerRegistrationFormController implements Initializable {
@@ -103,7 +102,7 @@ public class CustomerRegistrationFormController implements Initializable {
         if(txtNIC.getText().isEmpty() || txtName.getText().isEmpty()        || dateChooserTxt.getValue() == null    ||
            txtAge.getText().isEmpty() || txtPhoneNumber.getText().isEmpty() || txtEmailAddress.getText().isEmpty()  || txtHomeAddress.getText().isEmpty()) {
             try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerRegistrationAllFillPopUp.fxml"))));
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/popUpMessages/CustomerRegistrationAllFillPopUp.fxml"))));
                 stage.resizableProperty();
                 stage.show();
             } catch (IOException e) {
@@ -134,24 +133,36 @@ public class CustomerRegistrationFormController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        customerRegistrationService.updateCustomer(new CustomerRegistration(
-                txtNIC.getText(),
-                txtName.getText(),
-                dateChooserTxt.getValue(),
-                Integer.parseInt(txtAge.getText()),
-                Integer.parseInt(txtPhoneNumber.getText()),
-                txtEmailAddress.getText(),
-                txtHomeAddress.getText(),
-                checkIFstudent.getText()
-        ));
-        viewTable();
+
+        String checkStudent = checkIFstudent.isSelected()?"Student":"Adult";
+        if(txtNIC.getText().isEmpty() || txtName.getText().isEmpty() || dateChooserTxt.getValue() == null ||
+           txtAge.getText().isEmpty() || txtPhoneNumber.getText().isEmpty() || txtEmailAddress.getText().isEmpty() ||
+        txtHomeAddress.getText().isEmpty()){
+            try {
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/popUpMessages/CustomerUpdatePopup.fxml"))));
+                stage.show();
+                stage.resizableProperty();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }else {
+            customerRegistrationService.updateCustomer(new CustomerRegistration(
+                    txtNIC.getText(),
+                    txtName.getText(),
+                    dateChooserTxt.getValue(),
+                    Integer.parseInt(txtAge.getText()),
+                    Integer.parseInt(txtPhoneNumber.getText()),
+                    txtEmailAddress.getText(),
+                    txtHomeAddress.getText(),
+                    checkStudent
+            ));
+            viewTable();
+        }
     }
 
     private void setdobAge(){
         LocalDate dob = dateChooserTxt.getValue();
-
-
-
 
         if(dob != null) {
             LocalDate nowDate = LocalDate.now();

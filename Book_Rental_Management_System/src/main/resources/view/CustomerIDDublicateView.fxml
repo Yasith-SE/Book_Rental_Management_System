@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="275.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.CustomerIDDublicatePopupController">
+<AnchorPane prefHeight="275.0" prefWidth="573.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.popUpMessages.CustomerIDDublicatePopupController">
    <children>
       <ButtonBar layoutY="-3.0" prefHeight="40.0" prefWidth="580.0" style="-fx-background-color: green;">
          <buttons>

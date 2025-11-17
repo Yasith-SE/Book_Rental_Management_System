@@ -14,14 +14,14 @@ public class BookStoreRepositoryImpl implements BookStoreRepository {
 
     BookStore bookStore =  new BookStore();
 
-
-    public ResultSet allBookDetails(BookStore bookStore) throws SQLException {
+    @Override
+    public ResultSet allBookDetails() throws SQLException {
         String SQL = "SELECT * FROM book_registration";
         Connection connection = DBConnection.getInstance().getConnection();
 
         return (ResultSet) connection .prepareStatement(SQL);
     }
-
+    @Override
     public void addBooksDetails(BookStore bookStore) throws SQLException {
         String SQL = "INSERT INTO book_registration WHERE VALUE (?,?,?,?,?,?);";
 
@@ -36,6 +36,11 @@ public class BookStoreRepositoryImpl implements BookStoreRepository {
             preparedStatement.setObject(6,bookStore.getPrice());
 
         preparedStatement.executeUpdate();
+    }
+
+    public void updateStoreBooks(BookStore bookStore)throws SQLException{
+
+        String SQL = "UPDATE book_registration SET bookTitle = ?, bookAuthor = ?, category = ?, quantity = ? , price = ? WHERE bookId = ? ";
     }
 
 

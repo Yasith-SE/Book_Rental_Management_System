@@ -16,4 +16,5 @@ public interface CustomerRegistrationRepository {
     void updateCustomer(CustomerRegistration customerUpdate) throws SQLException;
     void deleteCustomer(String nic) throws SQLException;
 
+
 }

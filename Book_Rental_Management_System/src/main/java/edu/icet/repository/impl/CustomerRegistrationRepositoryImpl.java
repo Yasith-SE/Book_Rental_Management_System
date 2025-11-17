@@ -45,7 +45,7 @@ public class CustomerRegistrationRepositoryImpl implements CustomerRegistrationR
 
 
     public void updateCustomer(CustomerRegistration customerUpdate) throws SQLException {
-        String SQL ="UPDATE customer_registration SET Name = ?, DOB = ?, Age = ?, PhoneNumber = ?, Cust_Email = ?, Cust_HomeAdress = ? WHERE NIC = ?; ";
+        String SQL ="UPDATE customer_registration SET Name = ?, DOB = ?, Age = ?, PhoneNumber = ?, Cust_Email = ?, Cust_HomeAdress = ?, Adult_Student = ? WHERE NIC = ?; ";
 
         Connection connection = DBConnection.getInstance().getConnection();
         PreparedStatement preparedUpdateStatement = connection.prepareStatement(SQL);
@@ -56,6 +56,7 @@ public class CustomerRegistrationRepositoryImpl implements CustomerRegistrationR
         preparedUpdateStatement.setObject(5,customerUpdate.getPhoneNo());
         preparedUpdateStatement.setObject(6,customerUpdate.getEmailAddress());
         preparedUpdateStatement.setObject(7,customerUpdate.getHomeAddress());
+        preparedUpdateStatement.setObject(8,customerUpdate.getAdultStudent());
         preparedUpdateStatement.executeUpdate();
 
     }

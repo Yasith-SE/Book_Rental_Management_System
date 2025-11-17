@@ -7,6 +7,9 @@ import java.sql.SQLException;
 
 public interface BookStoreRepository {
 
-    ResultSet allBookDetails(BookStore bookStore) throws SQLException;
+    ResultSet allBookDetails() throws SQLException;
 
+    void addBooksDetails(BookStore bookStore) throws SQLException;
+
+    void updateStoreBooks(BookStore bookStore)throws SQLException;
 }
