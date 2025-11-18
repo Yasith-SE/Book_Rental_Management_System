@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="598.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="598.0" fitWidth="829.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/wlf31k.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane fx:id="borderPane" layoutX="7.0" layoutY="6.0" prefHeight="588.0" prefWidth="791.0">
+         <top>
+            <AnchorPane prefHeight="122.0" prefWidth="785.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton layoutX="230.0" layoutY="49.0" onAction="#adminButtonOnAction" prefHeight="38.0" prefWidth="124.0" style="-fx-background-color: B9935A;" text="Admin">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="466.0" layoutY="50.0" onAction="#employeeButtonOnAction" prefHeight="37.0" prefWidth="112.0" style="-fx-background-color: B9935A;" text="Employee">
+                     <font>
+                        <Font name="System Bold" size="45.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

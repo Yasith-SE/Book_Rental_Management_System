@@ -29,6 +29,18 @@ public class LibraryDashboardController {
         }
 
     }
+    @FXML
+    void btnLoginButtonOnAction(ActionEvent event) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/LoginFormView.fxml"))));
+            stage.resizableProperty();
+            stage.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
     @FXML
     void btnRentalBooksOnAction(ActionEvent event) {

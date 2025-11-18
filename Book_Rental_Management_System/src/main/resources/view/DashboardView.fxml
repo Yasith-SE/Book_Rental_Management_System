@@ -77,15 +77,15 @@
             <Font name="Gabriola" size="96.0" />
          </font>
       </Label>
-      <Label layoutX="81.0" layoutY="36.0" style="-fx-background-color: #0a5193;" text=" Home " textFill="WHITE">
+      <Label layoutX="149.0" layoutY="37.0" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="151.0" layoutY="37.0" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton layoutX="79.0" layoutY="32.0" onAction="#btnLoginButtonOnAction" style="-fx-background-color: #0a5193;" text="Login" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
-      </Label>
+      </JFXButton>
    </children>
 </AnchorPane>
