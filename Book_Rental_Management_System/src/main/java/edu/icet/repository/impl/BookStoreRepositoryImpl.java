@@ -18,8 +18,8 @@ public class BookStoreRepositoryImpl implements BookStoreRepository {
     public ResultSet allBookDetails() throws SQLException {
         String SQL = "SELECT * FROM book_registration";
         Connection connection = DBConnection.getInstance().getConnection();
-
-        return (ResultSet) connection .prepareStatement(SQL);
+        PreparedStatement preparedStatement = connection .prepareStatement(SQL);
+        return preparedStatement.executeQuery();
     }
     @Override
     public void addBooksDetails(BookStore bookStore) throws SQLException {
@@ -41,6 +41,25 @@ public class BookStoreRepositoryImpl implements BookStoreRepository {
     public void updateStoreBooks(BookStore bookStore)throws SQLException{
 
         String SQL = "UPDATE book_registration SET bookTitle = ?, bookAuthor = ?, category = ?, quantity = ? , price = ? WHERE bookId = ? ";
+         Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setObject(1,bookStore.getBookTitle());
+        preparedStatement.setObject(2,bookStore.getAuthor());
+        preparedStatement.setObject(3,bookStore.getCategory());
+        preparedStatement.setObject(4,bookStore.getQuantity());
+        preparedStatement.setObject(5,bookStore.getPrice());
+        preparedStatement.setObject(6,bookStore.getBookId());
+
+        preparedStatement.executeUpdate();
+    }
+    public void deleteBook(String bookId) throws SQLException {
+        String SQL = "DELETE FROM book_registration WHERE bookId = ?";
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setString(1, bookId);
+
+        preparedStatement.executeUpdate();
     }
 
 

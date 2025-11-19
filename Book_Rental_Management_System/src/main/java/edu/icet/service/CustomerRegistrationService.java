@@ -7,11 +7,11 @@ public interface CustomerRegistrationService {
 
     void addCustomerReg(CustomerRegistration customerRegistration);
 
-    boolean checkMemberID(CustomerRegistration memberId);
+    boolean existByNIC(String nic);
 
     void updateCustomer(CustomerRegistration customerRegistration);
 
-    void deleteCustomer(String nic);
+    boolean deleteCustomer(String nic);
 
 
     ObservableList<CustomerRegistration> allCustomerResultSet();

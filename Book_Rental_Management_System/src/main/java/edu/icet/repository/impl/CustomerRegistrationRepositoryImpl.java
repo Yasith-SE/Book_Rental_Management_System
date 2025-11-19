@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 public class CustomerRegistrationRepositoryImpl implements CustomerRegistrationRepository {
 
+    @Override
     public ResultSet allCustomers() throws SQLException {
         String SQL = "SELECT * FROM customer_registration;";
 
@@ -21,7 +22,7 @@ public class CustomerRegistrationRepositoryImpl implements CustomerRegistrationR
         return resultSet;
     }
 
-
+    @Override
     public void addCustomerReg(CustomerRegistration customerRegistration) throws SQLException {
         String SQL ="INSERT INTO customer_registration VALUES(?,?,?,?,?,?,?,?);";
 
@@ -38,35 +39,49 @@ public class CustomerRegistrationRepositoryImpl implements CustomerRegistrationR
 
            preparedStatement.executeUpdate();
 
+
         }
-
-
-
-
-
+    @Override
+    public boolean existsByNIC(String nic) throws SQLException {
+        String SQL = "SELECT 1 FROM customer_registration WHERE NIC = ? LIMIT 1";
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement stmt = connection.prepareStatement(SQL);
+        stmt.setString(1, nic);
+        ResultSet rs = stmt.executeQuery();
+        return rs.next(); // true if NIC already exists
+    }
+    @Override
     public void updateCustomer(CustomerRegistration customerUpdate) throws SQLException {
         String SQL ="UPDATE customer_registration SET Name = ?, DOB = ?, Age = ?, PhoneNumber = ?, Cust_Email = ?, Cust_HomeAdress = ?, Adult_Student = ? WHERE NIC = ?; ";
 
         Connection connection = DBConnection.getInstance().getConnection();
         PreparedStatement preparedUpdateStatement = connection.prepareStatement(SQL);
-        preparedUpdateStatement.setObject(1,customerUpdate.getNIC());
-        preparedUpdateStatement.setObject(2,customerUpdate.getFullName());
-        preparedUpdateStatement.setObject(3,customerUpdate.getDob());
-        preparedUpdateStatement.setObject(4,customerUpdate.getAge());
-        preparedUpdateStatement.setObject(5,customerUpdate.getPhoneNo());
-        preparedUpdateStatement.setObject(6,customerUpdate.getEmailAddress());
-        preparedUpdateStatement.setObject(7,customerUpdate.getHomeAddress());
-        preparedUpdateStatement.setObject(8,customerUpdate.getAdultStudent());
+        preparedUpdateStatement.setObject(1,customerUpdate.getFullName());
+        preparedUpdateStatement.setObject(2,customerUpdate.getDob());
+        preparedUpdateStatement.setObject(3,customerUpdate.getAge());
+        preparedUpdateStatement.setObject(4,customerUpdate.getPhoneNo());
+        preparedUpdateStatement.setObject(5,customerUpdate.getEmailAddress());
+        preparedUpdateStatement.setObject(6,customerUpdate.getHomeAddress());
+        preparedUpdateStatement.setObject(7,customerUpdate.getAdultStudent());
+
+        preparedUpdateStatement.setObject(8,customerUpdate.getNIC());
+
         preparedUpdateStatement.executeUpdate();
 
     }
-    public void deleteCustomer(String nic) throws SQLException {
+
+    @Override
+    public boolean deleteCustomer(String nic) throws SQLException {
         String SQL="DELETE FROM customer_registration WHERE NIC = ? ;";
 
         Connection connection = DBConnection.getInstance().getConnection();
         PreparedStatement preparedStatement  = connection.prepareStatement(SQL);
         preparedStatement.setObject(1,nic);
-        preparedStatement.executeUpdate();
+        int rowsAffacted =  preparedStatement.executeUpdate();
+        preparedStatement.close();
+
+        return rowsAffacted > 0;
+
     }
 
 

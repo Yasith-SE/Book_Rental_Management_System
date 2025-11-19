@@ -29,6 +29,7 @@ public class CustomerRegistrationFormController implements Initializable {
     CustomerRegistration customerRegistration = new CustomerRegistration();
     CustomerRegistrationService customerRegistrationService = new CustomerRegistrationServiceImpl();
 
+    ViewCustomerTable viewCustomerTable = new ViewCustomerTable();
     ObservableList<CustomerRegistration>customerRegistrationObservableList = FXCollections.observableArrayList();
 
 
@@ -59,32 +60,7 @@ public class CustomerRegistrationFormController implements Initializable {
     @FXML
     private JFXTextField txtPhoneNumber;
 
-    @FXML
-    private TableView<CustomerRegistration> customerTblView;
 
-    @FXML
-    private TableColumn<?, ?> colAge;
-
-    @FXML
-    private TableColumn<?, ?> colDOB;
-
-    @FXML
-    private TableColumn<?, ?> colEmail;
-
-    @FXML
-    private TableColumn<?, ?> colHomeAdress;
-
-    @FXML
-    private TableColumn<?, ?> colName;
-
-    @FXML
-    private TableColumn<?, ?> colNic;
-
-    @FXML
-    private TableColumn<?, ?> colPhoneNumber;
-
-    @FXML
-    private TableColumn<?, ?> colSelectAdultOrStudent;
 
     @FXML
     private Label lblSelectAdultStudent;
@@ -98,7 +74,8 @@ public class CustomerRegistrationFormController implements Initializable {
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
 
-        String checkIfStudent = checkIFstudent.isSelected() ? "Student":"Adult";
+        String checkIfStudent = checkIFstudent.isSelected() ? "Student":"Adult";//get student or adult
+        //check all fields are filled
         if(txtNIC.getText().isEmpty() || txtName.getText().isEmpty()        || dateChooserTxt.getValue() == null    ||
            txtAge.getText().isEmpty() || txtPhoneNumber.getText().isEmpty() || txtEmailAddress.getText().isEmpty()  || txtHomeAddress.getText().isEmpty()) {
             try {
@@ -108,27 +85,66 @@ public class CustomerRegistrationFormController implements Initializable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }else{
+        }else if(customerRegistrationService.existByNIC(txtNIC.getText())){
+                try {
+                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/popUpMessages/CustomerIDDublicateView.fxml"))));
+                    stage.resizableProperty();
+                    stage.show();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+        }else {
 
             customerRegistrationService.addCustomerReg(new CustomerRegistration(
                     txtNIC.getText(),
                     txtName.getText(),
                     dateChooserTxt.getValue(),
                     Integer.parseInt(txtAge.getText()),
-                    Integer.parseInt(txtPhoneNumber.getText()),
+                    txtPhoneNumber.getText(),
                     txtEmailAddress.getText(),
                     txtHomeAddress.getText(),
                     checkIfStudent
             ));
-            viewTable();
+
+
 
         }
 
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) {
+    void btnViewTableOnAction(ActionEvent event) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/ViewTable.fxml"))));
+            stage.show();
 
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+        boolean result = customerRegistrationService.deleteCustomer(txtNIC.getText());
+        if(result) {
+            try {
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/popUpMessages/CustomerDeletePopup.fxml"))));
+                stage.show();
+                stage.resizableProperty();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else{
+            try {
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/popUpMessages/NICNotFoundPopupView.fxml"))));
+                stage.show();
+                stage.resizableProperty();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @FXML
@@ -152,12 +168,12 @@ public class CustomerRegistrationFormController implements Initializable {
                     txtName.getText(),
                     dateChooserTxt.getValue(),
                     Integer.parseInt(txtAge.getText()),
-                    Integer.parseInt(txtPhoneNumber.getText()),
+                    txtPhoneNumber.getText(),
                     txtEmailAddress.getText(),
                     txtHomeAddress.getText(),
                     checkStudent
             ));
-            viewTable();
+
         }
     }
 
@@ -192,25 +208,7 @@ public class CustomerRegistrationFormController implements Initializable {
 
         dateChooserTxt.setOnAction(event -> setdobAge());
 
-        colNic.setCellValueFactory(new PropertyValueFactory<>("NIC"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("fullName"));
-        colDOB.setCellValueFactory(new PropertyValueFactory<>("Dob"));
-        colAge.setCellValueFactory(new PropertyValueFactory<>("age"));
-        colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNo"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("emailAddress"));
-        colHomeAdress.setCellValueFactory(new PropertyValueFactory<>("homeAddress"));
-        colSelectAdultOrStudent.setCellValueFactory(new PropertyValueFactory<>("adultStudent"));
-
-        viewTable();
-
     }
-    private void viewTable(){
-        customerTblView.setItems(customerRegistrationService.allCustomerResultSet());
-
-
-    }
-
-
 
 
 }

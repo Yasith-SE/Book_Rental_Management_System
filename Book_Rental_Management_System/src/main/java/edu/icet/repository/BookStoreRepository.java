@@ -12,4 +12,6 @@ public interface BookStoreRepository {
     void addBooksDetails(BookStore bookStore) throws SQLException;
 
     void updateStoreBooks(BookStore bookStore)throws SQLException;
+
+    void deleteBook(String bookId) throws SQLException;
 }

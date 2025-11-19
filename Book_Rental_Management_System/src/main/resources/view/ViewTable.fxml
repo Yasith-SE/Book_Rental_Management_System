@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="487.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.ViewCustomerTable">
+   <children>
+      <ImageView fitHeight="515.0" fitWidth="785.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Library%20Frame.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="customerTblView" layoutX="22.0" layoutY="59.0" prefHeight="373.0" prefWidth="746.0" style="-fx-background-color: gold;">
+         <columns>
+            <TableColumn fx:id="colNic" prefWidth="49.0" text="NIC" />
+            <TableColumn fx:id="colName" prefWidth="88.0" text="Name" />
+            <TableColumn fx:id="colDOB" prefWidth="61.0" text="DOB" />
+            <TableColumn fx:id="colAge" prefWidth="69.0" text="Age" />
+            <TableColumn fx:id="colPhoneNumber" prefWidth="88.0" text="PhoneNo" />
+            <TableColumn fx:id="colEmail" prefWidth="108.0" text="Email" />
+            <TableColumn fx:id="colHomeAdress" prefWidth="128.0" text="Home Address" />
+            <TableColumn fx:id="colSelectAdultOrStudent" prefWidth="154.0" text="Adult or Student" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="700.0" layoutY="12.0" onAction="#closeBtnOnAction" prefHeight="35.0" prefWidth="65.0" ripplerFill="RED" text="X" />
+   </children>
+</AnchorPane>

@@ -16,7 +16,7 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
     CustomerRegistrationRepository customerRegistrationRepository = new CustomerRegistrationRepositoryImpl();
 
     @Override
-    public ObservableList<CustomerRegistration> allCustomerResultSet(){
+    public ObservableList<CustomerRegistration> allCustomerResultSet() {
         ObservableList<CustomerRegistration> customerRegistrations = FXCollections.observableArrayList();
 
         try {
@@ -28,7 +28,7 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
                         resultSet.getString("Name"),
                         resultSet.getObject("DOB", java.time.LocalDate.class),
                         resultSet.getInt("Age"),
-                        resultSet.getInt("PhoneNumber"),
+                        resultSet.getString("PhoneNumber"),
                         resultSet.getString("Cust_Email"),
                         resultSet.getString("Cust_HomeAdress"),
                         resultSet.getString("Adult_Student")
@@ -47,12 +47,21 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
     @Override
     public void addCustomerReg(CustomerRegistration customerRegistration) {
         try {
-           customerRegistrationRepository.addCustomerReg(customerRegistration);
+            customerRegistrationRepository.addCustomerReg(customerRegistration);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
     }
+    @Override
+    public boolean existByNIC(String nic) {
+        try {
+            return customerRegistrationRepository.existsByNIC(nic);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 
     @Override
@@ -65,42 +74,15 @@ public class CustomerRegistrationServiceImpl implements CustomerRegistrationServ
 
     }
     @Override
-    public void deleteCustomer(String nic){
+    public boolean deleteCustomer(String nic){
         try {
-            customerRegistrationRepository.deleteCustomer(nic);
+            return customerRegistrationRepository.deleteCustomer(nic);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
     }
-
-
-
-    @Override
-    public boolean checkMemberID(CustomerRegistration memberId){
-        boolean memberIdExists = false;
-
-        try {
-            Connection conn = DBConnection.getInstance().getConnection();
-            Statement stm = conn.createStatement();
-            ResultSet rst = stm.executeQuery("SELECT * FROM customer_registration WHERE NIC='"+memberId+"';");
-
-            String id;
-            if (rst.next()){
-
-                id = rst.getString("NIC");
-                if(id.equals(Integer.valueOf(String.valueOf(memberId))))
-                    memberIdExists = true;
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        return memberIdExists;
-    }
-
 
 }
 

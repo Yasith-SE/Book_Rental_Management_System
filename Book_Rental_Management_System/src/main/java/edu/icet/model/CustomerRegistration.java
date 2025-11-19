@@ -17,7 +17,7 @@ public class CustomerRegistration {
     private String fullName;
     private LocalDate Dob;
     private int age;
-    private int phoneNo;
+    private String phoneNo;
     private String emailAddress;
     private String homeAddress;
     private String adultStudent;

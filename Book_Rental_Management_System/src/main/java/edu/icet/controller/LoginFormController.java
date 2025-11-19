@@ -15,7 +15,9 @@ public class LoginFormController {
 
     @FXML
     void adminButtonOnAction(ActionEvent event) {
-        setContent("/view/UserAdminView.fxml");
+        setContent("/view/UserAdminView.fxml" +
+                "" +
+                "");
     }
 
     @FXML

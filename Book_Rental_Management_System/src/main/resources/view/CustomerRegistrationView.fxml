@@ -6,8 +6,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -56,23 +54,11 @@
          </font>
       </JFXButton>
       <JFXCheckBox fx:id="checkIFstudent" layoutX="1082.0" layoutY="682.0" text="Student" />
-      <JFXButton layoutX="1143.0" layoutY="9.0" onAction="#btnCloseOnAction" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #4A2515;" text="      ×" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton layoutX="1143.0" layoutY="9.0" onAction="#btnCloseOnAction" prefHeight="38.0" prefWidth="126.0" ripplerFill="RED" text="×" textAlignment="CENTER">
          <font>
             <Font name="Lucida Console" size="22.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="customerTblView" layoutX="23.0" layoutY="253.0" prefHeight="192.0" prefWidth="617.0" style="-fx-background-color: gold;">
-        <columns>
-          <TableColumn fx:id="colNic" prefWidth="49.0" text="NIC" />
-          <TableColumn fx:id="colName" prefWidth="59.0" text="Name" />
-            <TableColumn fx:id="colDOB" prefWidth="41.0" text="DOB" />
-            <TableColumn fx:id="colAge" prefWidth="50.0" text="Age" />
-            <TableColumn fx:id="colPhoneNumber" prefWidth="93.0" text="PhoneNo" />
-            <TableColumn fx:id="colEmail" prefWidth="63.0" text="Email" />
-            <TableColumn fx:id="colHomeAdress" prefWidth="120.0" text="Home Address" />
-            <TableColumn fx:id="colSelectAdultOrStudent" prefWidth="140.0" text="Adult or Student" />
-        </columns>
-      </TableView>
       <JFXButton layoutX="808.0" layoutY="719.0" onAction="#btnDeleteOnAction" prefHeight="46.0" prefWidth="129.0" style="-fx-background-color: #4A2515;" text="Delete" textFill="WHITE">
          <font>
             <Font name="Arial Bold Italic" size="20.0" />
@@ -95,5 +81,10 @@
       </Label>
       <Label fx:id="lblSelectAdultStudent" layoutX="979.0" layoutY="240.0" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: silver;" />
       <Label fx:id="lblAge" layoutX="974.0" layoutY="404.0" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: silver;" />
+      <JFXButton layoutX="1135.0" layoutY="146.0" onAction="#btnViewTableOnAction" prefHeight="38.0" prefWidth="108.0" style="-fx-background-color: #4A2515;" text="ViewTable" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
