@@ -67,9 +67,9 @@
             <Image url="@images/return_5597045.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="1151.0" layoutY="17.0" onAction="#btnCloseOnAction" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #0a5193;" text="      ×" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1165.0" layoutY="24.0" onAction="#btnCloseOnAction" prefHeight="43.0" prefWidth="78.0" ripplerFill="RED" text="×" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Lucida Console" size="22.0" />
+            <Font name="Arial Bold" size="24.0" />
          </font>
       </JFXButton>
       <Label layoutX="465.0" layoutY="649.0" text="LibraryArea" textFill="WHITE">
@@ -77,12 +77,12 @@
             <Font name="Gabriola" size="96.0" />
          </font>
       </Label>
-      <Label layoutX="149.0" layoutY="37.0" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="155.0" layoutY="37.0" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton layoutX="79.0" layoutY="32.0" onAction="#btnLoginButtonOnAction" style="-fx-background-color: #0a5193;" text="Login" textFill="WHITE">
+      <JFXButton layoutX="79.0" layoutY="32.0" onAction="#btnLoginButtonOnAction" style="-fx-background-color: #f5983c;" text="Login">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

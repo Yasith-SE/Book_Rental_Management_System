@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="454.91" prefWidth="731.6" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.UserSignUpController">
+   <children>
+      <ImageView fitHeight="454.91" fitWidth="731.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/SignUp.png" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="txtEmployeeId" layoutX="214.0" layoutY="87.0" prefHeight="35.0" prefWidth="202.0" promptText="  Employee Id" style="-fx-background-color: white;" />
+      <JFXTextField fx:id="txtEmployeeName" layoutX="448.0" layoutY="87.0" prefHeight="35.0" prefWidth="202.0" promptText="  Employee Name" style="-fx-background-color: white;" />
+      <JFXTextField fx:id="txtEmployeEmail" layoutX="452.0" layoutY="180.0" prefHeight="35.0" prefWidth="202.0" promptText="  Employee Email" style="-fx-background-color: white;" />
+      <JFXTextField fx:id="txtEmployeePassword" layoutX="214.0" layoutY="263.0" prefHeight="35.0" prefWidth="202.0" promptText="  Employee Password" style="-fx-background-color: white;" />
+      <Label layoutX="161.0" layoutY="27.0" text="SignUp" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="553.0" layoutY="360.0" onAction="#btnSignUpEmployeeOnAction" prefHeight="35.0" prefWidth="97.0" style="-fx-background-color: orange;" text="Sign Up">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></JFXButton>
+      <JFXTextField fx:id="txtEmployeeComfirmPassword" layoutX="448.0" layoutY="263.0" prefHeight="35.0" prefWidth="202.0" promptText="  Comfirm Password" style="-fx-background-color: white;" />
+      <ComboBox fx:id="comboEmployeeRole" layoutX="214.0" layoutY="180.0" prefHeight="35.0" prefWidth="202.0" promptText="Employee Role" />
+      <JFXButton buttonType="RAISED" layoutX="584.0" layoutY="26.0" onAction="#btnGoToAdminSignUpOnAction" ripplerFill="#00a4ff" text="Select Admin" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="56.0" layoutY="24.0" onAction="#btnGoBackSignOnAction" prefHeight="35.0" prefWidth="97.0" style="-fx-background-color: orange;" text="Sign In">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

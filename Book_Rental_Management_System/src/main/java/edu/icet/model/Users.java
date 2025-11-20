@@ -11,12 +11,10 @@ import lombok.*;
 
 public class Users {
 
-    private String emailAddress;
+    private String username;
     private String password;
+    private String useRole;
 
-    private Employee employee;
-
-    private Admin admin;
 
 
 

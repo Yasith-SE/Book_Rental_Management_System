@@ -43,7 +43,7 @@ public class BookStoreServiceImpl implements BookStoreService {
 
     }
     @Override
-    public void setstoreBook(BookStore bookStore){
+    public void addstoreBook(BookStore bookStore){
         try {
             bookStoreRepository.addBooksDetails(bookStore);
         } catch (SQLException e) {
@@ -51,4 +51,22 @@ public class BookStoreServiceImpl implements BookStoreService {
         }
 
     }
+    @Override
+    public void updateStoreBook(BookStore bookStore) {
+        try {
+            bookStoreRepository.updateStoreBooks(bookStore);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Override
+    public boolean deleteStoreBook(String bookId) {
+        try {
+            bookStoreRepository.deleteBook(bookId);
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

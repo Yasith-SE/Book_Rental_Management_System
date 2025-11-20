@@ -11,11 +11,10 @@ import lombok.*;
 @ToString
 
 public class Employee {
-    private String employeeId;
+    private int employeeId;
     private String employeeName;
-
+    private String role;
     private String emailAddress;
     private String password;
-
 
 }

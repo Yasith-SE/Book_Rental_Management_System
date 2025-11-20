@@ -6,7 +6,11 @@ import javafx.collections.ObservableList;
 public interface BookStoreService {
 
     ObservableList<BookStore> bookStores();
-    void setstoreBook(BookStore bookStore);
+    void addstoreBook(BookStore bookStore);
+
+    void updateStoreBook(BookStore bookStore);
+
+    boolean deleteStoreBook(String bookId);
 
 
 }
