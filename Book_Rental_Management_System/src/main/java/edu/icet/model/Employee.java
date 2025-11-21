@@ -13,8 +13,9 @@ import lombok.*;
 public class Employee {
     private int employeeId;
     private String employeeName;
-    private String role;
-    private String emailAddress;
-    private String password;
+    private String employeRole;
+    private String employeeEmailAddress;
+    private String employeePassword;
+
 
 }

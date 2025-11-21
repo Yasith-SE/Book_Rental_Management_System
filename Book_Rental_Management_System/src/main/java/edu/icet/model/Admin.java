@@ -9,9 +9,10 @@ import lombok.*;
 @ToString
 
 public class Admin {
+
     private int adminId;
     private String adminName;
-    private String role;
+    private String adminRole;
     private String adminEmail;
     private String adminPassword;
 

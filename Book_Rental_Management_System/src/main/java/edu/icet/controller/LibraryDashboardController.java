@@ -15,7 +15,13 @@ public class LibraryDashboardController {
 
     @FXML
     void btnBookRegOnAction(ActionEvent event) {
-
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/BookStore.fxml"))));
+            stage.resizableProperty();
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -34,7 +40,11 @@ public class LibraryDashboardController {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UserLogin.fxml"))));
             stage.resizableProperty();
+            stage.close();
             stage.show();
+
+            stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.close();
 
         } catch (IOException e) {
             throw new RuntimeException(e);

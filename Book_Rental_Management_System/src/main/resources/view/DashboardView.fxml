@@ -72,17 +72,17 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </JFXButton>
-      <Label layoutX="465.0" layoutY="649.0" text="LibraryArea" textFill="WHITE">
+      <Label layoutX="464.0" layoutY="640.0" text="LibraryArea" textFill="WHITE">
          <font>
-            <Font name="Gabriola" size="96.0" />
+            <Font name="Gabriola" size="100.0" />
          </font>
       </Label>
-      <Label layoutX="155.0" layoutY="37.0" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="171.0" layoutY="37.0" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton layoutX="79.0" layoutY="32.0" onAction="#btnLoginButtonOnAction" style="-fx-background-color: #f5983c;" text="Login">
+      <JFXButton layoutX="79.0" layoutY="32.0" onAction="#btnLoginButtonOnAction" style="-fx-background-color: #f5983c;" text="Sign In">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

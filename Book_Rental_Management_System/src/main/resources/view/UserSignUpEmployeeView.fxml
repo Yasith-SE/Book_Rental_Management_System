@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="454.91" prefWidth="731.6" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.UserSignUpController">
+<AnchorPane prefHeight="454.91" prefWidth="731.6" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.UserEmployeeSignUpController">
    <children>
       <ImageView fitHeight="454.91" fitWidth="731.6" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -19,7 +23,6 @@
       <JFXTextField fx:id="txtEmployeeId" layoutX="214.0" layoutY="87.0" prefHeight="35.0" prefWidth="202.0" promptText="  Employee Id" style="-fx-background-color: white;" />
       <JFXTextField fx:id="txtEmployeeName" layoutX="448.0" layoutY="87.0" prefHeight="35.0" prefWidth="202.0" promptText="  Employee Name" style="-fx-background-color: white;" />
       <JFXTextField fx:id="txtEmployeEmail" layoutX="452.0" layoutY="180.0" prefHeight="35.0" prefWidth="202.0" promptText="  Employee Email" style="-fx-background-color: white;" />
-      <JFXTextField fx:id="txtEmployeePassword" layoutX="214.0" layoutY="263.0" prefHeight="35.0" prefWidth="202.0" promptText="  Employee Password" style="-fx-background-color: white;" />
       <Label layoutX="161.0" layoutY="27.0" text="SignUp" textFill="WHITE">
          <font>
             <Font name="System Bold" size="22.0" />
@@ -29,7 +32,6 @@
          <font>
             <Font name="System Bold" size="17.0" />
          </font></JFXButton>
-      <JFXTextField fx:id="txtEmployeeComfirmPassword" layoutX="448.0" layoutY="263.0" prefHeight="35.0" prefWidth="202.0" promptText="  Comfirm Password" style="-fx-background-color: white;" />
       <ComboBox fx:id="comboEmployeeRole" layoutX="214.0" layoutY="180.0" prefHeight="35.0" prefWidth="202.0" promptText="Employee Role" />
       <JFXButton buttonType="RAISED" layoutX="584.0" layoutY="26.0" onAction="#btnGoToAdminSignUpOnAction" ripplerFill="#00a4ff" text="Select Admin" textFill="WHITE">
          <font>
@@ -41,5 +43,30 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </JFXButton>
+      <JFXPasswordField fx:id="txtEmployeePassword" layoutX="214.0" layoutY="259.0" prefHeight="35.0" prefWidth="202.0" promptText="  Employee Password" style="-fx-background-color: white;" />
+      <JFXPasswordField fx:id="txtEmployeeConfirmPassword" layoutX="452.0" layoutY="259.0" prefHeight="35.0" prefWidth="202.0" promptText="Confirm Password" style="-fx-background-color: white;" />
+      <Label fx:id="lblErrorPasswordConfirm" layoutX="452.0" layoutY="309.0" prefHeight="25.0" prefWidth="202.0">
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="lblAddedSuccess" layoutX="248.0" layoutY="366.0" prefHeight="45.0" prefWidth="256.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
