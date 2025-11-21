@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,18 +28,20 @@
       <JFXTextField fx:id="txtBookRentalCost" layoutX="882.0" layoutY="436.0" prefHeight="47.0" prefWidth="250.0" promptText="Book Rental Cost" style="-fx-background-color: white;" />
       <JFXButton buttonType="RAISED" layoutX="111.0" layoutY="548.0" onAction="#btnAddToBookBucketOnAction" onKeyPressed="#btnAddToBookBucketOnActionn" prefHeight="36.0" prefWidth="250.0" ripplerFill="#17e32c" style="-fx-background-color: #2F4940;" text=" Add to Book Bucket" textFill="WHITE">
          <font>
-            <Font name="Gadugi Bold" size="42.0" />
+            <Font name="Gadugi Bold" size="18.0" />
          </font>
       </JFXButton>
       <JFXButton buttonType="RAISED" layoutX="502.0" layoutY="548.0" onAction="#btmBuyRentalBookOnAction" onKeyPressed="#btnBuyRentalBookOnAction" prefHeight="36.0" prefWidth="250.0" ripplerFill="#10dd25" style="-fx-background-color: #2F4940;" text="Buy Rental Books">
          <font>
-            <Font name="System Bold" size="64.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
       <JFXButton layoutX="922.0" layoutY="548.0" onAction="#btnCancelBookOrderOnAction" onKeyPressed="#btnCancelBookOrderOnActionn" prefHeight="36.0" prefWidth="194.0" style="-fx-background-color: #2F4940;" text="Cancel Book Order">
          <font>
-            <Font name="Ebrima Bold" size="52.0" />
+            <Font name="Ebrima Bold" size="18.0" />
          </font>
       </JFXButton>
+      <DatePicker fx:id="issueDatepicker" layoutX="888.0" layoutY="180.0" prefHeight="36.0" prefWidth="238.0" promptText="Issue Date" style="-fx-background-color: White;" />
+      <DatePicker fx:id="dueDatePicker" layoutX="888.0" layoutY="239.0" prefHeight="36.0" prefWidth="238.0" promptText="Due Date" style="-fx-background-color: White;" />
    </children>
 </AnchorPane>

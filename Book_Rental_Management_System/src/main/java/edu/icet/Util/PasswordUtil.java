@@ -6,20 +6,20 @@ import java.util.Base64;
 
 public class PasswordUtil {
 
-    public static String hashPassword(String password) {
+    public static String hash(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
-            byte[] hashed = md.digest(password.getBytes());
-            return Base64.getEncoder().encodeToString(hashed);
+            byte[] bytes = md.digest(password.getBytes());
 
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("Error hashing password", e);
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bytes) {
+                sb.append(String.format("%02x", b));
+            }
+
+            return sb.toString();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-    }
-
-    // Check if entered password matches the stored hash
-    public static boolean verifyPassword(String enteredPassword, String storedHash) {
-        String hashedEnteredPassword = hashPassword(enteredPassword);
-        return hashedEnteredPassword.equals(storedHash);
-    }
+        }
 }

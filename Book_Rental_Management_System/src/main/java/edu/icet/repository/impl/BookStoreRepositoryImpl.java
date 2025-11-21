@@ -23,11 +23,11 @@ public class BookStoreRepositoryImpl implements BookStoreRepository {
     }
     @Override
     public void addBooksDetails(BookStore bookStore) throws SQLException {
-        String SQL = "INSERT INTO book_registration WHERE VALUE (?,?,?,?,?,?);";
+        String sql = "INSERT INTO book_registration(bookId, bookTitle, bookAuthor, category, quantity, price) VALUES (?, ?, ?, ?, ?, ?)";
 
         Connection connection = DBConnection.getInstance().getConnection();
 
-        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setObject(1,bookStore.getBookId());
             preparedStatement.setObject(2,bookStore.getBookTitle());
             preparedStatement.setObject(3,bookStore.getAuthor());
@@ -36,6 +36,40 @@ public class BookStoreRepositoryImpl implements BookStoreRepository {
             preparedStatement.setObject(6,bookStore.getPrice());
 
         preparedStatement.executeUpdate();
+    }
+
+    public boolean exsitsById(String bookID) throws SQLException {
+        String SQL = "SELECT 1 FROM book_registration WHERE bookId = ?";
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+         preparedStatement.setString(1,bookID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return resultSet.next();
+
+    }
+
+    @Override
+    public String generateNextBookId() throws SQLException {
+
+        String sql = "SELECT bookId FROM book_registration ORDER BY bookId DESC LIMIT 1";
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement pst = connection.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            String lastId = rs.getString(1);   // B0007
+            return incrementId(lastId);
+        } else {
+            return "B0001"; // first ID
+        }
+    }
+
+    private String incrementId(String lastId) {
+        int num = Integer.parseInt(lastId.substring(1)); // remove "B"
+        num++;                                           // 7 → 8
+        return String.format("B%04d", num);              // → B0008
     }
 
     public void updateStoreBooks(BookStore bookStore)throws SQLException{

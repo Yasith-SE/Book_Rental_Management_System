@@ -3,9 +3,16 @@ package edu.icet.controller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.input.KeyEvent;
 
 public class BookRentalController {
+
+    @FXML
+    private DatePicker dueDatePicker;
+
+    @FXML
+    private DatePicker issueDatepicker;
 
     @FXML
     private JFXTextField txtBookId;

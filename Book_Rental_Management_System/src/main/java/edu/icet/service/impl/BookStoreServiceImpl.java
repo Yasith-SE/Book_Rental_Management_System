@@ -51,6 +51,23 @@ public class BookStoreServiceImpl implements BookStoreService {
         }
 
     }
+
+    @Override
+    public boolean exsistByID(String bookId){
+        try {
+            return bookStoreRepository.exsitsById(bookId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    @Override
+    public String generateNextBookId() throws SQLException {
+
+            return bookStoreRepository.generateNextBookId();
+
+    }
+
     @Override
     public void updateStoreBook(BookStore bookStore) {
         try {
