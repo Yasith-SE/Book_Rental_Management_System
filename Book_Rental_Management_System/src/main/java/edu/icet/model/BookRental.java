@@ -14,16 +14,11 @@ public class BookRental {
 
     private String rentalId;
 
-    private String bookId;
-    private String bookTitle;
-
-    private String NIC;
-    private String customerName;
+    private String nic;
 
     private LocalDate issueDate;
+
     private LocalDate dueDate;
 
-    private int BookQuantity;
-    private double bookRentalCost;
 
 }

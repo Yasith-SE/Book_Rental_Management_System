@@ -111,9 +111,7 @@ public class UserSignInController implements Initializable {
 
 
         boolean b = comboRole.getItems().addAll("Librarian", "Assistant Librarian", "Clerk");
-        userLoginService.adminLogin(new Admin(
-
-        ));
+       
 
     }
 }

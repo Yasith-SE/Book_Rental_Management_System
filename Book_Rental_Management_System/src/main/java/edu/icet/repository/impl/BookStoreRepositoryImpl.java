@@ -59,17 +59,17 @@ public class BookStoreRepositoryImpl implements BookStoreRepository {
         ResultSet rs = pst.executeQuery();
 
         if (rs.next()) {
-            String lastId = rs.getString(1);   // B0007
+            String lastId = rs.getString(1);
             return incrementId(lastId);
         } else {
-            return "B0001"; // first ID
+            return "B0002"; // first ID
         }
     }
 
     private String incrementId(String lastId) {
-        int num = Integer.parseInt(lastId.substring(1)); // remove "B"
-        num++;                                           // 7 → 8
-        return String.format("B%04d", num);              // → B0008
+        int num = Integer.parseInt(lastId.substring(1));
+        num++;
+        return String.format("B%03d", num);
     }
 
     public void updateStoreBooks(BookStore bookStore)throws SQLException{

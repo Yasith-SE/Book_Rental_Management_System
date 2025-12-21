@@ -1,12 +1,22 @@
 package edu.icet.controller;
 
 import com.jfoenix.controls.JFXTextField;
+import edu.icet.model.BookRentalItem;
+import edu.icet.model.BookStore;
+import edu.icet.service.BookStoreService;
+import edu.icet.service.impl.BookStoreServiceImpl;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.input.KeyEvent;
 
 public class BookRentalController {
+
+    ObservableList<BookRentalItem> bookBucket = FXCollections.observableArrayList();
+    BookStoreService bookStoreService = new BookStoreServiceImpl();
+    BookStore bookStore = new BookStore();
 
     @FXML
     private DatePicker dueDatePicker;
