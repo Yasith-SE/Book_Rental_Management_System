@@ -96,5 +96,42 @@ public class BookStoreRepositoryImpl implements BookStoreRepository {
         preparedStatement.executeUpdate();
     }
 
+    @Override
+    public BookStore searchByIdOrTitle(String value) throws SQLException {
+
+        String sql = "SELECT * FROM book_registration WHERE bookId = ? OR bookTitle = ?";
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement pst = connection.prepareStatement(sql);
+
+        pst.setString(1, value);
+        pst.setString(2, value);
+
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            return new BookStore(
+                    rs.getString("bookId"),
+                    rs.getString("bookTitle"),
+                    rs.getString("bookAuthor"),
+                    rs.getString("category"),
+                    rs.getInt("quantity"),
+                    rs.getDouble("price")
+            );
+        }
+        return null;
+    }
+
+    @Override
+    public void reduceBookQty(String bookId, int qty) throws SQLException {
+        String sql = "UPDATE book_registration SET quantity = quantity - ? WHERE bookId = ?";
+        Connection con = DBConnection.getInstance().getConnection();
+        PreparedStatement pst = con.prepareStatement(sql);
+
+        pst.setInt(1, qty);
+        pst.setString(2, bookId);
+
+        pst.executeUpdate();
+    }
+
 
 }

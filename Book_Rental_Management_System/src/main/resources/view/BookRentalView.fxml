@@ -2,7 +2,9 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,33 +17,38 @@
             <Image url="@images/Book%20Rental%20Frame.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtRentalBookSearch" layoutX="155.0" layoutY="167.0" onAction="#searchTextFieldOnAction" prefHeight="26.0" prefWidth="250.0" promptText="Enter BookId or Title" style="-fx-background-color: white;" />
+      <JFXTextField fx:id="txtRentalBookSearch" layoutX="155.0" layoutY="167.0" onAction="#searchTextFieldOnAction" onKeyReleased="#searchTextFieldOnKeyRelease" prefHeight="26.0" prefWidth="250.0" promptText="Enter BookId or Title" style="-fx-background-color: white;" />
       <JFXTextField fx:id="txtBookId" layoutX="155.0" layoutY="345.0" prefHeight="47.0" prefWidth="250.0" promptText="BookId" style="-fx-background-color: white;" />
-      <JFXTextField layoutX="155.0" layoutY="436.0" onAction="#txtBookTitle" prefHeight="47.0" prefWidth="250.0" promptText="Book Title" style="-fx-background-color: white;" />
+      <JFXTextField fx:id="txtBookTitle" layoutX="155.0" layoutY="436.0" prefHeight="47.0" prefWidth="250.0" promptText="Book Title" style="-fx-background-color: white;" />
       <JFXTextField fx:id="txtCustomerName" layoutX="502.0" layoutY="436.0" prefHeight="47.0" prefWidth="250.0" promptText="Customer Name" style="-fx-background-color: white;" />
       <JFXTextField fx:id="txtNic" layoutX="502.0" layoutY="345.0" prefHeight="47.0" prefWidth="250.0" promptText="NIC" style="-fx-background-color: white;" />
-      <JFXTextField fx:id="txtBookRentalId" layoutX="502.0" layoutY="269.0" prefHeight="47.0" prefWidth="250.0" promptText="Rental Id" style="-fx-background-color: white;">
-         <font>
-            <Font size="22.0" />
-         </font></JFXTextField>
+      <JFXTextField fx:id="txtBookRentalId" layoutX="502.0" layoutY="269.0" prefHeight="47.0" prefWidth="250.0" promptText="Rental Id" style="-fx-background-color: white;" />
       <JFXTextField fx:id="txtBookQuantity" layoutX="882.0" layoutY="345.0" prefHeight="47.0" prefWidth="250.0" promptText="Book Quantity" style="-fx-background-color: white;" />
       <JFXTextField fx:id="txtBookRentalCost" layoutX="882.0" layoutY="436.0" prefHeight="47.0" prefWidth="250.0" promptText="Book Rental Cost" style="-fx-background-color: white;" />
-      <JFXButton buttonType="RAISED" layoutX="111.0" layoutY="548.0" onAction="#btnAddToBookBucketOnAction" onKeyPressed="#btnAddToBookBucketOnActionn" prefHeight="36.0" prefWidth="250.0" ripplerFill="#17e32c" style="-fx-background-color: #2F4940;" text=" Add to Book Bucket" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="111.0" layoutY="548.0" onAction="#btnAddToBookBucketOnAction" prefHeight="36.0" prefWidth="250.0" ripplerFill="#17e32c" style="-fx-background-color: #2F4940;" text=" Add to Book Bucket" textFill="WHITE">
          <font>
             <Font name="Gadugi Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="502.0" layoutY="548.0" onAction="#btmBuyRentalBookOnAction" onKeyPressed="#btnBuyRentalBookOnAction" prefHeight="36.0" prefWidth="250.0" ripplerFill="#10dd25" style="-fx-background-color: #2F4940;" text="Buy Rental Books">
+      <JFXButton buttonType="RAISED" layoutX="502.0" layoutY="548.0" onAction="#btmBuyRentalBookOnAction" onKeyPressed="#btnBuyRentalBookOnAction" prefHeight="36.0" prefWidth="250.0" ripplerFill="#10dd25" style="-fx-background-color: #2F4940;" text="Buy Rental Books" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Gadugi Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="922.0" layoutY="548.0" onAction="#btnCancelBookOrderOnAction" onKeyPressed="#btnCancelBookOrderOnActionn" prefHeight="36.0" prefWidth="194.0" style="-fx-background-color: #2F4940;" text="Cancel Book Order">
+      <JFXButton layoutX="922.0" layoutY="548.0" onAction="#btnCancelBookOrderOnAction" onKeyPressed="#btnCancelBookOrderOnActionn" prefHeight="36.0" prefWidth="194.0" style="-fx-background-color: #2F4940;" text="Cancel Book Order" textFill="WHITE">
          <font>
             <Font name="Ebrima Bold" size="18.0" />
          </font>
       </JFXButton>
       <DatePicker fx:id="issueDatepicker" layoutX="888.0" layoutY="180.0" prefHeight="36.0" prefWidth="238.0" promptText="Issue Date" style="-fx-background-color: White;" />
-      <DatePicker fx:id="dueDatePicker" layoutX="888.0" layoutY="239.0" prefHeight="36.0" prefWidth="238.0" promptText="Due Date" style="-fx-background-color: White;" />
+      <DatePicker fx:id="dueDatePicker" layoutX="888.0" layoutY="269.0" prefHeight="36.0" prefWidth="238.0" promptText="Due Date" style="-fx-background-color: White;" />
+      <Label fx:id="lblValidationMessage" layoutX="498.0" layoutY="584.0" prefHeight="36.0" prefWidth="256.0" textAlignment="CENTER" />
+      <Button layoutX="1019.0" layoutY="668.0" mnemonicParsing="false" onAction="#btnViewTableOnAction" text="View Rental Table">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblIssueDate" layoutX="888.0" layoutY="224.0" prefHeight="26.0" prefWidth="238.0" />
+      <Label fx:id="lblDueDate" layoutX="888.0" layoutY="312.0" prefHeight="18.0" prefWidth="238.0" />
    </children>
 </AnchorPane>

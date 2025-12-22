@@ -16,6 +16,8 @@ public class BookRental {
 
     private String nic;
 
+    private String customerName;
+
     private LocalDate issueDate;
 
     private LocalDate dueDate;

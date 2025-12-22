@@ -5,8 +5,9 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 
-public class BookReturnController {
+public class    BookReturnController {
 
     @FXML
     private DatePicker IssueDatePicker;
@@ -43,6 +44,9 @@ public class BookReturnController {
 
     @FXML
     private JFXTextField txtRentalId;
+
+    @FXML
+    private Label lblValidationMessage;
 
     @FXML
     private JFXTextField txtRentalSearch;

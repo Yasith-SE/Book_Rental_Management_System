@@ -16,6 +16,10 @@ public interface BookStoreService {
 
     void updateStoreBook(BookStore bookStore);
 
+    BookStore searchBook(String value);
+
+    void reduceBookQty(String bookId, int qty);
+
     boolean deleteStoreBook(String bookId);
 
 

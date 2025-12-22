@@ -54,7 +54,17 @@ public class LibraryDashboardController {
 
     @FXML
     void btnRentalBooksOnAction(ActionEvent event) {
+        try {
+            stage.setScene((new Scene(FXMLLoader.load(getClass().getResource("/view/BookRentalView.fxml")))));
+            stage.resizableProperty();
+            stage.close();
+            stage.show();
 
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

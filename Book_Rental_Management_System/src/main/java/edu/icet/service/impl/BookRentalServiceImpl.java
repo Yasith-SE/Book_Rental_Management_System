@@ -9,6 +9,7 @@ import edu.icet.service.BookRentalService;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class BookRentalServiceImpl implements BookRentalService {
@@ -17,21 +18,21 @@ public class BookRentalServiceImpl implements BookRentalService {
 
 
     @Override
-    public boolean placeRental(BookRental rental, List<BookRentalItem> items) {
+    public boolean placeRental(String rentalId, String nic, String name, LocalDate issueDate, LocalDate dueDate, List<BookRentalItem> items) {
         Connection con = null;
 
         try {
             con = DBConnection.getInstance().getConnection();
-            con.setAutoCommit(false); // START TRANSACTION
+            con.setAutoCommit(false);
 
-            bookRentalRepository.saveRental(rental);
+            bookRentalRepository.saveRental(rentalId, nic, name, issueDate, dueDate);
 
             for (BookRentalItem item : items) {
-                bookRentalRepository.saveRentalItem(rental.getRentalId(), item);
+                bookRentalRepository.saveRentalItem(rentalId, item);
                 bookRentalRepository.updateBookQty(item.getBookId(), item.getQuantity());
             }
 
-            con.commit(); // SUCCESS
+            con.commit();
             return true;
 
         } catch (Exception e) {

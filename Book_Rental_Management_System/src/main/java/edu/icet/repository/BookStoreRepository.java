@@ -16,6 +16,10 @@ public interface BookStoreRepository {
     String generateNextBookId() throws SQLException;
 
 
+    BookStore searchByIdOrTitle(String value) throws SQLException;
+
+    void reduceBookQty(String bookId, int qty) throws SQLException;
+
     void updateStoreBooks(BookStore bookStore)throws SQLException;
 
     void deleteBook(String bookId) throws SQLException;

@@ -76,6 +76,27 @@ public class BookStoreServiceImpl implements BookStoreService {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public BookStore searchBook(String value) {
+        try {
+            return bookStoreRepository.searchByIdOrTitle(value);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void reduceBookQty(String bookId, int qty) {
+        try {
+
+            bookStoreRepository.reduceBookQty(bookId,qty);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public boolean deleteStoreBook(String bookId) {
         try {

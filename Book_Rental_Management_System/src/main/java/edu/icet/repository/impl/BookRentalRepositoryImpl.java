@@ -9,20 +9,22 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class BookRentalRepositoryImpl implements BookRentalRepository {
 
 
     @Override
-    public void saveRental(BookRental rental) throws SQLException {
-        String sql = "INSERT INTO rental VALUES (?,?,?,?)";
+    public void saveRental(String rentalId, String nic, String name, LocalDate issueDate, LocalDate dueDate) throws SQLException {
+        String sql = "INSERT INTO rental VALUES (?,?,?,?,?)";
         Connection con = DBConnection.getInstance().getConnection();
         PreparedStatement pst = con.prepareStatement(sql);
 
-        pst.setString(1, rental.getRentalId());
-        pst.setString(2, rental.getNic());
-        pst.setDate(3, Date.valueOf(rental.getIssueDate()));
-        pst.setDate(4, Date.valueOf(rental.getDueDate()));
+        pst.setString(1, rentalId);
+        pst.setString(2, nic);
+        pst.setString(3,name);
+        pst.setDate(4, java.sql.Date.valueOf(issueDate));
+        pst.setDate(5, java.sql.Date.valueOf(dueDate));
 
         pst.executeUpdate();
     }
