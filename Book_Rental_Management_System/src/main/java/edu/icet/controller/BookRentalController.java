@@ -73,62 +73,65 @@ public class BookRentalController {
 
     @FXML
     void btmBuyRentalBookOnAction(ActionEvent event) {
-        if(txtBookId.getText().isEmpty() || txtBookTitle.getText().isEmpty()  || txtBookRentalId.getText().isEmpty()  ||txtNic.getText().isEmpty() ||
-                txtCustomerName.getText().isEmpty()  || issueDatepicker.getValue() == null || dueDatePicker.getValue() == null ||
-                txtBookQuantity.getText().isEmpty()  || txtBookRentalCost.getText().isEmpty()){
+        // Basic validation
+        if (txtBookRentalId.getText().isEmpty() || txtNic.getText().isEmpty() ||
+                txtCustomerName.getText().isEmpty() || issueDatepicker.getValue() == null ||
+                dueDatePicker.getValue() == null || bookBucket.isEmpty()) {
+            lblValidationMessage.setText("Please fill all fields and add books to bucket.");
+            return;
+        }
 
-            lblValidationMessage.setText("Fill all the fields");
+        LocalDate issueDate = issueDatepicker.getValue();
+        LocalDate dueDate = dueDatePicker.getValue();
 
-        } else{
-            LocalDate issueDate = issueDatepicker.getValue();
-            LocalDate dueDate = dueDatePicker.getValue();
+        // 2. Date Validation
+        if (dueDate.isBefore(issueDate)) {
+            lblValidationMessage.setText("Due Date cannot be before Issue Date.");
+            return;
+        }
+        // 3. Call the Service (This runs the code in Step 2 above)
+        boolean isPlaced = bookRentalService.placeRental(
+                txtBookRentalId.getText(),
+                txtNic.getText(),
+                txtCustomerName.getText(),
+                issueDate,
+                dueDate,
+                bookBucket // Pass the whole list
+        );
 
-            if(issueDate == null || dueDate == null){
-                lblIssueDate.setText("Select Issue Date");
-                return;
-
-            }if(dueDate.isBefore(issueDate)){
-                lblDueDate.setText("Due Date Cannot before IssueDate");
-                return;
-
-            }
-
-            bookRental = new BookRental(
-                    txtBookRentalId.getText(),
-                    txtNic.getText(),
-                    txtCustomerName.getText(),
-                    issueDate,
-                    dueDate
-            );
-            for(BookRentalItem bookRentalItem : bookBucket){
-                rentalItemService.saveRentalItem(
-                        txtBookRentalId.getText(),
-                        bookRentalItem.getBookId(),
-                        bookRentalItem.getQuantity(),
-                        bookRentalItem.getRentalCost()
-                );
-
-                bookStoreService.reduceBookQty(
-                        bookRentalItem.getBookId(),
-                        bookRentalItem.getQuantity()
-                );
-
-            }
-
-            lblValidationMessage.setText("Book Rented Succuessfully");
-            bookBucket.clear();
+        if (isPlaced) {
+            lblValidationMessage.setText("Rental Placed Successfully!");
+            bookBucket.clear(); // Clear the table
+            
+        } else {
+            lblValidationMessage.setText("Rental Failed. Check if NIC exists or Book Stock is sufficient." );
         }
     }
 
     @FXML
     void btnAddToBookBucketOnAction(ActionEvent event) {
+
+        if(txtBookId.getText().isEmpty() || txtBookQuantity.getText().isEmpty() || txtBookRentalCost.getText().isEmpty()) {
+            lblValidationMessage.setText("Please select a book");
+            return;
+        }
+
         BookRentalItem bookRentalItem = new BookRentalItem(
-                txtBookId.getText(),
-                txtBookTitle.getText(),
-                Integer.parseInt(txtBookQuantity.getText()),
-                Double.parseDouble(txtBookRentalCost.getText())
+                txtBookRentalId.getText(),                    // rentalId
+                txtBookId.getText(),                          // bookId
+                txtBookTitle.getText(),                       // bookTitle (Must be included!)
+                Integer.parseInt(txtBookQuantity.getText()),  // quantity
+                Double.parseDouble(txtBookRentalCost.getText()) // rentalCost
         );
+
+
         bookBucket.add(bookRentalItem);
+
+
+         txtBookId.clear();
+         txtBookTitle.clear();
+         txtBookQuantity.clear();
+         txtBookRentalCost.clear();
     }
 
 

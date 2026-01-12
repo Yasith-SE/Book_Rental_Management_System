@@ -20,29 +20,30 @@ public class BookRentalServiceImpl implements BookRentalService {
     @Override
     public boolean placeRental(String rentalId, String nic, String name, LocalDate issueDate, LocalDate dueDate, List<BookRentalItem> items) {
         Connection con = null;
-
         try {
             con = DBConnection.getInstance().getConnection();
-            con.setAutoCommit(false);
+            con.setAutoCommit(false); // 1. Start Transaction
 
+            // 2. Save the main Rental info first
             bookRentalRepository.saveRental(rentalId, nic, name, issueDate, dueDate);
 
+            // 3. Save each Book in the Bucket
             for (BookRentalItem item : items) {
                 bookRentalRepository.saveRentalItem(rentalId, item);
                 bookRentalRepository.updateBookQty(item.getBookId(), item.getQuantity());
             }
 
-            con.commit();
+            con.commit(); // 4. Save Changes to Database
             return true;
 
         } catch (Exception e) {
             try {
-                if (con != null) con.rollback();
+                if (con != null) con.rollback(); // Undo if error
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
+            e.printStackTrace();
             return false;
-
         } finally {
             try {
                 if (con != null) con.setAutoCommit(true);
@@ -50,6 +51,5 @@ public class BookRentalServiceImpl implements BookRentalService {
                 e.printStackTrace();
             }
         }
-
     }
 }

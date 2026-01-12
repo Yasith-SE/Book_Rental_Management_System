@@ -20,10 +20,10 @@ public class EmployeeSignUpRepositoryImpl implements EmployeeSignUpRepository {
         Connection connection =  DBConnection.getInstance().getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
         preparedStatement.setObject(1,employee.getEmployeeId());
-        preparedStatement.setObject(1,employee.getEmployeeName());
-        preparedStatement.setObject(2,employee.getEmployeRole());
-        preparedStatement.setObject(3,employee.getEmployeeEmailAddress());
-        preparedStatement.setObject(4,employee.getEmployeePassword());
+        preparedStatement.setObject(2,employee.getEmployeeName());
+        preparedStatement.setObject(3,employee.getEmployeRole());
+        preparedStatement.setObject(4,employee.getEmployeeEmailAddress());
+        preparedStatement.setObject(5,employee.getEmployeePassword());
 
         preparedStatement.executeUpdate();
 

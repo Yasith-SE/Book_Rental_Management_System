@@ -19,10 +19,10 @@ public class AdminSignUpRepositoryImpl implements AdminSignUpRepository {
         Connection connection =  DBConnection.getInstance().getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
         preparedStatement.setObject(1,admin.getAdminId());
-        preparedStatement.setObject(1,admin.getAdminName());
-        preparedStatement.setObject(2,admin.getAdminRole());
-        preparedStatement.setObject(3,admin.getAdminEmail());
-        preparedStatement.setObject(4,admin.getAdminPassword());
+        preparedStatement.setObject(2,admin.getAdminName());
+        preparedStatement.setObject(3,admin.getAdminRole());
+        preparedStatement.setObject(4,admin.getAdminEmail());
+        preparedStatement.setObject(5,admin.getAdminPassword());
 
         preparedStatement.executeUpdate();
     }

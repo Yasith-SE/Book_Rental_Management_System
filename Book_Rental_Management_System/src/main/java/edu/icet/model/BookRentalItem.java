@@ -10,9 +10,12 @@ import lombok.*;
 @ToString
 
 public class BookRentalItem {
+
+    private String rentalId;
+
     private String bookId;
 
-    private String book_title;
+    private String bookTitle;
 
     private int quantity;
 
