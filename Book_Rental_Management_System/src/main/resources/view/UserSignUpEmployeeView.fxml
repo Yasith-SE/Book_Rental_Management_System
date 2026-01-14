@@ -68,5 +68,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <Label layoutX="332.0" layoutY="31.0" text="Employee signup" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
