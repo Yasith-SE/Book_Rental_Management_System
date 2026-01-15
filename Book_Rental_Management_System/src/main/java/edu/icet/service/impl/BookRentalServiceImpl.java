@@ -25,12 +25,12 @@ public class BookRentalServiceImpl implements BookRentalService {
             con.setAutoCommit(false); // 1. Start Transaction
 
             // 2. Save the main Rental info first
-            bookRentalRepository.saveRental(rentalId, nic, name, issueDate, dueDate);
+            bookRentalRepository.saveRental(con, rentalId, nic, name, issueDate, dueDate);
 
             // 3. Save each Book in the Bucket
             for (BookRentalItem item : items) {
-                bookRentalRepository.saveRentalItem(rentalId, item);
-                bookRentalRepository.updateBookQty(item.getBookId(), item.getQuantity());
+                bookRentalRepository.saveRentalItem(con,rentalId, item);
+                bookRentalRepository.updateBookQty(con, item.getBookId(), item.getQuantity());
             }
 
             con.commit(); // 4. Save Changes to Database
