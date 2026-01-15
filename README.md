@@ -1,4 +1,4 @@
-# 🏛️ Library & Book Rental Management System
+# 🏛️ Book Rental Management System
 
 A comprehensive desktop application designed to modernize library operations. This system efficiently manages book rentals, member registrations, and library inventory. Built using **JavaFX** and **MySQL**, it follows a strict **Layered Architecture (MVC)** to ensure data integrity and scalable performance.
 
