@@ -30,25 +30,30 @@
             <Font name="Gadugi Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="502.0" layoutY="548.0" onAction="#btmBuyRentalBookOnAction" onKeyPressed="#btnBuyRentalBookOnAction" prefHeight="36.0" prefWidth="250.0" ripplerFill="#10dd25" style="-fx-background-color: #2F4940;" text="Buy Rental Books" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="502.0" layoutY="548.0" onAction="#btnBuyRentalBookOnAction" prefHeight="36.0" prefWidth="250.0" ripplerFill="#10dd25" style="-fx-background-color: #2F4940;" text="Buy Rental Books" textFill="WHITE">
          <font>
             <Font name="Gadugi Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="922.0" layoutY="548.0" onAction="#btnCancelBookOrderOnAction" onKeyPressed="#btnCancelBookOrderOnActionn" prefHeight="36.0" prefWidth="194.0" style="-fx-background-color: #2F4940;" text="Cancel Book Order" textFill="WHITE">
+      <JFXButton layoutX="922.0" layoutY="548.0" onAction="#btnCancelBookOrderOnAction" prefHeight="36.0" prefWidth="194.0" style="-fx-background-color: #2F4940;" text="Cancel Book Order" textFill="WHITE">
          <font>
             <Font name="Ebrima Bold" size="18.0" />
          </font>
       </JFXButton>
       <DatePicker fx:id="issueDatepicker" layoutX="888.0" layoutY="180.0" prefHeight="36.0" prefWidth="238.0" promptText="Issue Date" style="-fx-background-color: White;" />
       <DatePicker fx:id="dueDatePicker" layoutX="888.0" layoutY="269.0" prefHeight="36.0" prefWidth="238.0" promptText="Due Date" style="-fx-background-color: White;" />
-      <Label fx:id="lblValidationMessage" layoutX="498.0" layoutY="584.0" prefHeight="36.0" prefWidth="256.0" textAlignment="CENTER" />
+      <Label fx:id="lblValidationMessage" layoutX="76.0" layoutY="206.0" prefHeight="36.0" prefWidth="389.0" textAlignment="CENTER" textFill="#eb0505">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
       <Button layoutX="1019.0" layoutY="668.0" mnemonicParsing="false" onAction="#btnViewTableOnAction" text="View Rental Table">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Label fx:id="lblIssueDate" layoutX="888.0" layoutY="224.0" prefHeight="26.0" prefWidth="238.0" />
-      <Label fx:id="lblDueDate" layoutX="888.0" layoutY="312.0" prefHeight="18.0" prefWidth="238.0" />
+      <Label fx:id="lblIssueDate" layoutX="76.0" layoutY="257.0" prefHeight="36.0" prefWidth="360.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>

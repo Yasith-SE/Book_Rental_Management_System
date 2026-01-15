@@ -71,116 +71,112 @@ public class BookRentalController {
     @FXML
     private JFXTextField txtRentalBookSearch;
 
-    @FXML
-    void btmBuyRentalBookOnAction(ActionEvent event) {
 
-        if (txtBookRentalId.getText().isEmpty() || txtNic.getText().isEmpty() ||
-                txtCustomerName.getText().isEmpty() || issueDatepicker.getValue() == null ||
-                dueDatePicker.getValue() == null || bookBucket.isEmpty()) {
-            lblValidationMessage.setText("Please fill all fields and add books to bucket.");
+    @FXML
+    void btnBuyRentalBookOnAction(ActionEvent event) {
+
+
+        if (txtBookRentalId.getText().isEmpty() ||
+                txtNic.getText().isEmpty() ||
+                txtCustomerName.getText().isEmpty() ||
+                issueDatepicker.getValue() == null ||
+                dueDatePicker.getValue() == null) {
+
+            lblValidationMessage.setText("Please fill all Rental ");
+            return;
+        }
+        if (bookBucket.isEmpty()) {
+            lblValidationMessage.setText("Please add at least one book to the bucket.");
             return;
         }
 
         LocalDate issueDate = issueDatepicker.getValue();
         LocalDate dueDate = dueDatePicker.getValue();
 
-        // 2. Date Validation
         if (dueDate.isBefore(issueDate)) {
-            lblValidationMessage.setText("Due Date cannot be before Issue Date.");
+            lblIssueDate.setText("Due Date cannot be before Issue Date.");
             return;
         }
-        // 3. Call the Service (This runs the code in Step 2 above)
+
+
         boolean isPlaced = bookRentalService.placeRental(
                 txtBookRentalId.getText(),
                 txtNic.getText(),
                 txtCustomerName.getText(),
                 issueDate,
                 dueDate,
-                bookBucket // Pass the whole list
+                bookBucket
         );
 
         if (isPlaced) {
             lblValidationMessage.setText("Rental Placed Successfully!");
-            bookBucket.clear(); // Clear the table
-            
+
+            bookBucket.clear();
+            txtBookRentalId.clear();
+            txtNic.clear();
+            txtCustomerName.clear();
+            issueDatepicker.setValue(null);
+            dueDatePicker.setValue(null);
         } else {
-            lblValidationMessage.setText("Rental Failed. Check if NIC exists or Book Stock is sufficient." );
+            lblValidationMessage.setText("Rental Failed.");
         }
     }
 
     @FXML
     void btnAddToBookBucketOnAction(ActionEvent event) {
-
         if(txtBookId.getText().isEmpty() || txtBookQuantity.getText().isEmpty() || txtBookRentalCost.getText().isEmpty()) {
-            lblValidationMessage.setText("Please select a book");
+            lblValidationMessage.setText("Please select a book and enter quantity.");
             return;
         }
+
         try{
             String rentalId = txtBookRentalId.getText();
             String bookId = txtBookId.getText();
             String bookTitle = txtBookTitle.getText();
 
-            int quantityToAdd =  Integer.parseInt(txtBookQuantity.getText());
-            double unitPrice = Double.parseDouble(txtRentalBookSearch.getText());
+            int quantityToAdd = Integer.parseInt(txtBookQuantity.getText());
 
-            double totalLineCost =  unitPrice * quantityToAdd;
+
+            double unitPrice = Double.parseDouble(txtBookRentalCost.getText());
+
+            double totalLineCost = unitPrice * quantityToAdd;
+
+
             boolean isFound = false;
-
             for (BookRentalItem bookItem : bookBucket){
                 if(bookItem.getBookId().equals(bookId)){
-                    int qty = bookItem.getQuantity() + quantityToAdd;
-                    double newCost = bookItem.getRentalCost() + totalLineCost;
-
-                    bookItem.setQuantity(qty);
-                    bookItem.setRentalCost(newCost);
+                    bookItem.setQuantity(bookItem.getQuantity() + quantityToAdd);
+                    bookItem.setRentalCost(bookItem.getRentalCost() + totalLineCost);
                     isFound = true;
                     break;
-
                 }
-
             }
+
             if (!isFound){
                 BookRentalItem bookRentalItem = new BookRentalItem(
-                        rentalId,
-                        bookId,
-                        bookTitle,
-                        quantityToAdd,
-                        unitPrice
-
+                        rentalId, bookId, bookTitle, quantityToAdd, totalLineCost // Use calculated total cost
                 );
                 bookBucket.add(bookRentalItem);
             }
-            txtBookRentalId.clear();
+
+            txtBookId.clear();
             txtBookTitle.clear();
             txtBookQuantity.clear();
             txtBookRentalCost.clear();
+            txtRentalBookSearch.clear();
 
-            lblValidationMessage.setText("");
+            lblValidationMessage.setText("Book added to bucket.");
 
-        }catch (NumberFormatException e){
-            lblValidationMessage.setText("Quantity must be a valid number");
-
-
+        } catch (NumberFormatException e){
+            lblValidationMessage.setText("Invalid number format in Quantity or Cost.");
         }
-
     }
-
-    @FXML
-    void btnBuyRentalBookOnAction(KeyEvent event) {
-
-
-
-    }
-
     @FXML
     void btnCancelBookOrderOnAction(ActionEvent event) {
 
     }
 
-    @FXML
-    void btnCancelBookOrderOnActionn(KeyEvent event) {
 
-    }
 
     @FXML
     void searchTextFieldOnAction(ActionEvent event) {
