@@ -56,23 +56,23 @@ public class UserSignInController implements Initializable {
     @FXML
     void btnSignInOnAction(ActionEvent event) {
 
+        // 1. Get Data (Trim the username!)
         String username = txtLoginUsername.getText().trim();
         String password = txtLoginPassword.getText();
         String role = comboRole.getValue();
 
-        // 2. Validate Empty Fields FIRST
+        // 2. Check for empty fields
         if (username.isEmpty() || password.isEmpty() || role == null) {
             lblAddedSuccess.setText("Please fill all fields");
-            return; // Stop here if empty
+            return;
         }
 
-        // 3. Check Login (Call Service ONLY ONCE)
+        // 3. Call the Service ONCE
         boolean isLoginSuccess = userLoginService.loginUser(username, password, role);
 
         if (isLoginSuccess) {
-            System.out.println("Login Success! Opening Dashboard...");
+            lblAddedSuccess.setText("Login Successful");
             try {
-                // Load Dashboard
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/DashboardView.fxml"))));
                 stage.show();
 
@@ -84,10 +84,8 @@ public class UserSignInController implements Initializable {
                 throw new RuntimeException(e);
             }
         } else {
-            // Login Failed
             lblAddedSuccess.setText("Invalid Username or Password");
         }
-
     }
 
     @FXML
@@ -110,7 +108,7 @@ public class UserSignInController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        boolean b = comboRole.getItems().addAll("Librarian", "Assistant Librarian", "Clerk");
+        boolean b = comboRole.getItems().addAll("Librarian", "Assistant Librarian", "Clerk","Admin","Manager");
        
 
     }

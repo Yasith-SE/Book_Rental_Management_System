@@ -46,7 +46,7 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
     }
     @Override
     public boolean loginUser(String username, String password, String role) throws SQLException {
-        // 1. Check if the user exists based on Name and Role
+
         String sql = "SELECT password FROM userLogin WHERE username = ? AND role = ?";
 
         Connection connection = DBConnection.getInstance().getConnection();
@@ -61,7 +61,7 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
         System.out.println("Trying to login: [" + username + "] with Role: [" + role + "]");
 
         if (rs.next()) {
-            // 2. User FOUND. Now checking password.
+
             String dbHash = rs.getString("password");
             System.out.println("User FOUND in Database!");
             System.out.println("Database Hash: " + dbHash);
@@ -81,7 +81,7 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
             }
 
         } else {
-            // 3. User NOT FOUND
+
             System.out.println("ERROR: User NOT FOUND in database.");
             System.out.println("Possible causes:");
             System.out.println("1. The Username in DB has a space? e.g., 'Alan ' vs 'Alan'");

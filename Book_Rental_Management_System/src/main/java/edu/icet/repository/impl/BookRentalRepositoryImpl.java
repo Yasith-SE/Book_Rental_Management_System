@@ -17,7 +17,7 @@ public class BookRentalRepositoryImpl implements BookRentalRepository {
 
     @Override
     public void saveRental(Connection con, String rentalId, String nic, String name, LocalDate issueDate, LocalDate dueDate) throws SQLException {
-        // Matches your 'rental' table: 5 columns
+
         String sql = "INSERT INTO rental (rentalId, NIC, customerName, issue_date, due_date) VALUES (?,?,?,?,?)";
 
         try(PreparedStatement pst = con.prepareStatement(sql)) {
@@ -34,8 +34,7 @@ public class BookRentalRepositoryImpl implements BookRentalRepository {
 
     @Override
     public void saveRentalItem(Connection con, String rentalId, BookRentalItem item) throws SQLException {
-        // Matches your 'rental_item' table: 6 columns total, but we only insert 5.
-        // We SKIP 'id' because it is Auto-Increment.
+
         String sql = "INSERT INTO rental_item (rentalId, bookId, bookTitle, quantity, rentalCost) VALUES (?,?,?,?,?)";
 
         try(PreparedStatement pst = con.prepareStatement(sql)) {
