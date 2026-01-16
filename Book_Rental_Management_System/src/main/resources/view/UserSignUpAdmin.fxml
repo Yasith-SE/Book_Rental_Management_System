@@ -31,7 +31,7 @@
          </font>
       </JFXButton>
       <ComboBox fx:id="comboAdminRole" layoutX="224.0" layoutY="190.0" prefHeight="35.0" prefWidth="202.0" promptText="Admin Role" />
-      <JFXButton buttonType="RAISED" layoutX="563.0" layoutY="36.0" onAction="#btnGoToEmployeeSignUpOnAction" ripplerFill="#00a4ff" text="Select Employe" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="563.0" layoutY="36.0" onAction="#btnGoToEmployeeSignUpOnAction" ripplerFill="#00a4ff" text="Select Employee" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

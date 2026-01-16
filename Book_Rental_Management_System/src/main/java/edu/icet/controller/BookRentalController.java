@@ -173,6 +173,13 @@ public class BookRentalController {
     }
     @FXML
     void btnCancelBookOrderOnAction(ActionEvent event) {
+        txtBookId.clear();
+        txtBookTitle.clear();
+        txtBookQuantity.clear();
+        txtBookRentalCost.clear();
+        txtRentalBookSearch.clear();
+
+        lblValidationMessage.setText("All Cleared");
 
     }
 

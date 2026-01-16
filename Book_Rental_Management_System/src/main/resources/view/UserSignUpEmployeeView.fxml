@@ -44,7 +44,7 @@
          </font>
       </JFXButton>
       <JFXPasswordField fx:id="txtEmployeePassword" layoutX="214.0" layoutY="259.0" prefHeight="35.0" prefWidth="202.0" promptText="  Employee Password" style="-fx-background-color: white;" />
-      <JFXPasswordField fx:id="txtEmployeeConfirmPassword" layoutX="452.0" layoutY="259.0" prefHeight="35.0" prefWidth="202.0" promptText="Confirm Password" style="-fx-background-color: white;" />
+      <JFXPasswordField fx:id="txtEmployeeConfirmPassword" layoutX="452.0" layoutY="259.0" prefHeight="35.0" prefWidth="202.0" promptText="  Confirm Password" style="-fx-background-color: white;" />
       <Label fx:id="lblErrorPasswordConfirm" layoutX="452.0" layoutY="309.0" prefHeight="25.0" prefWidth="202.0">
          <textFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
