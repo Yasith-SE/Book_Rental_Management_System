@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="1290.0" layoutX="-1.0">
          <image>
-            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/24a3b2a8be983c30d03cb51d683a1532.jpg" />
+            <Image url="@images/24a3b2a8be983c30d03cb51d683a1532.jpg" />
          </image>
       </ImageView>
       <JFXButton buttonType="RAISED" layoutX="274.0" layoutY="90.0" onAction="#btnCustomerOnAction" prefHeight="222.0" prefWidth="317.0" ripplerFill="WHITE" style="-fx-background-color: #0a5193;" text="Customer &#10;Registration" textAlignment="CENTER" textFill="WHITE">
@@ -49,43 +49,43 @@
       </JFXButton>
       <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="526.0" layoutY="130.0">
          <image>
-            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/boy.png" />
+            <Image url="@images/boy.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="153.0" layoutX="978.0" layoutY="128.0">
          <image>
-            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/books.png" />
+            <Image url="@images/books.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="141.0" fitWidth="144.0" layoutX="526.0" layoutY="431.0">
          <image>
-            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/book_4715276.png" />
+            <Image url="@images/book_4715276.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="163.0" fitWidth="159.0" layoutX="960.0" layoutY="426.0">
          <image>
-            <Image url="@../../../../../../../../Art%20Works/Yasith/1x/return_5597045.png" />
+            <Image url="@images/return_5597045.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="1151.0" layoutY="17.0" onAction="#btnCloseOnAction" prefHeight="38.0" prefWidth="126.0" style="-fx-background-color: #0a5193;" text="      ×" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1165.0" layoutY="24.0" onAction="#btnCloseOnAction" prefHeight="43.0" prefWidth="78.0" ripplerFill="RED" text="×" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Lucida Console" size="22.0" />
+            <Font name="Arial Bold" size="24.0" />
          </font>
       </JFXButton>
-      <Label layoutX="465.0" layoutY="649.0" text="LibraryArea" textFill="WHITE">
+      <Label layoutX="464.0" layoutY="640.0" text="LibraryArea" textFill="WHITE">
          <font>
-            <Font name="Gabriola" size="96.0" />
+            <Font name="Gabriola" size="100.0" />
          </font>
       </Label>
-      <Label layoutX="81.0" layoutY="36.0" style="-fx-background-color: #0a5193;" text=" Home " textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="151.0" layoutY="37.0" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="171.0" layoutY="37.0" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
+      <JFXButton layoutX="79.0" layoutY="32.0" onAction="#btnLoginButtonOnAction" style="-fx-background-color: #f5983c;" text="Sign In">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

@@ -9,11 +9,13 @@ public interface CustomerRegistrationRepository {
 
     void addCustomerReg(CustomerRegistration customerRegistration) throws SQLException;
 
-
+    boolean existsByNIC(String nic) throws SQLException;
 
     ResultSet allCustomers() throws SQLException;
 
     void updateCustomer(CustomerRegistration customerUpdate) throws SQLException;
-    void deleteCustomer(String nic) throws SQLException;
+
+    boolean deleteCustomer(String nic) throws SQLException;
+
 
 }

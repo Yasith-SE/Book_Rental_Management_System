@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="278.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.popUpMessages.CustomerDeleteOkController">
+   <children>
+      <ImageView fitHeight="353.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Asset%2013.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="501.0" layoutY="8.0" onAction="#closeBtnOnAction" prefHeight="35.0" prefWidth="91.0" ripplerFill="RED" text="X">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

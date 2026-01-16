@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="291.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.popUpMessages.CustomerAllFillPopupController">
+   <children>
+      <ImageView fitHeight="292.0" fitWidth="531.0" layoutY="4.0">
+         <image>
+            <Image url="@../images/Asset%206.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="465.0" layoutY="14.0" onAction="#btnCloseOnAction" prefHeight="36.0" prefWidth="52.0" ripplerFill="RED" text="X" />
+   </children>
+</AnchorPane>
