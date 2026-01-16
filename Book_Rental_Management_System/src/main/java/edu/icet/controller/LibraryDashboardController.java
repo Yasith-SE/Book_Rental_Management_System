@@ -38,6 +38,7 @@ public class LibraryDashboardController {
     @FXML
     void btnLoginButtonOnAction(ActionEvent event) {
         try {
+
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UserLogin.fxml"))));
             stage.resizableProperty();
             stage.close();

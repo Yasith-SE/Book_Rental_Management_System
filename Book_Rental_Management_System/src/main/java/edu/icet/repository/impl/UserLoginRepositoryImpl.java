@@ -46,6 +46,7 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
     }
     @Override
     public boolean loginUser(String username, String password, String role) throws SQLException {
+        // 1. Check if the user exists based on Name and Role
         String sql = "SELECT password FROM userLogin WHERE username = ? AND role = ?";
 
         Connection connection = DBConnection.getInstance().getConnection();
@@ -56,11 +57,37 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
 
         ResultSet rs = pst.executeQuery();
 
-        if (rs.next()) {
-            String hashedPassword = rs.getString("password");
-            return BCrypt.checkpw(password, hashedPassword);
-        }
+        System.out.println("---------- LOGIN DEBUG START ----------");
+        System.out.println("Trying to login: [" + username + "] with Role: [" + role + "]");
 
-        return false;
+        if (rs.next()) {
+            // 2. User FOUND. Now checking password.
+            String dbHash = rs.getString("password");
+            System.out.println("User FOUND in Database!");
+            System.out.println("Database Hash: " + dbHash);
+
+            boolean isMatch = BCrypt.checkpw(password, dbHash);
+
+            if (isMatch) {
+                System.out.println("PASSWORD MATCH: True. Login should work.");
+                System.out.println("---------- LOGIN DEBUG END ----------");
+                return true;
+            } else {
+                System.out.println("PASSWORD MATCH: False.");
+                System.out.println("You typed: " + password);
+                System.out.println("NOTE: Passwords are Case Sensitive! 'apple' != 'Apple'");
+                System.out.println("---------- LOGIN DEBUG END ----------");
+                return false;
+            }
+
+        } else {
+            // 3. User NOT FOUND
+            System.out.println("ERROR: User NOT FOUND in database.");
+            System.out.println("Possible causes:");
+            System.out.println("1. The Username in DB has a space? e.g., 'Alan ' vs 'Alan'");
+            System.out.println("2. The Role in DB doesn't match? e.g., 'clerk' vs 'Clerk'");
+            System.out.println("---------- LOGIN DEBUG END ----------");
+            return false;
+        }
     }
 }

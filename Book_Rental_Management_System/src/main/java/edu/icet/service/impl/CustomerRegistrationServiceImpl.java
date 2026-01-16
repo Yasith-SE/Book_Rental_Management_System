@@ -12,7 +12,6 @@ import java.sql.*;
 
 public class CustomerRegistrationServiceImpl implements CustomerRegistrationService {
 
-    CustomerRegistration customerRegistrations = new CustomerRegistration();
     CustomerRegistrationRepository customerRegistrationRepository = new CustomerRegistrationRepositoryImpl();
 
     @Override

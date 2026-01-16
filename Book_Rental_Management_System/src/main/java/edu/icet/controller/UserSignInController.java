@@ -56,35 +56,35 @@ public class UserSignInController implements Initializable {
     @FXML
     void btnSignInOnAction(ActionEvent event) {
 
-        String username = txtLoginUsername.getText();
+        String username = txtLoginUsername.getText().trim();
         String password = txtLoginPassword.getText();
         String role = comboRole.getValue();
 
-        boolean isGet = userLoginService.loginUser(username,password,role);
-
-        if(txtLoginUsername.getText().isEmpty() ||
-           txtLoginPassword.getText().isEmpty() || comboRole.getValue() == null){
-
+        // 2. Validate Empty Fields FIRST
+        if (username.isEmpty() || password.isEmpty() || role == null) {
             lblAddedSuccess.setText("Please fill all fields");
+            return; // Stop here if empty
+        }
 
-        }else if(isGet){
-            lblAddedSuccess.setText("Login Successful");
+        // 3. Check Login (Call Service ONLY ONCE)
+        boolean isLoginSuccess = userLoginService.loginUser(username, password, role);
 
+        if (isLoginSuccess) {
+            System.out.println("Login Success! Opening Dashboard...");
             try {
+                // Load Dashboard
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/DashboardView.fxml"))));
-                stage.resizableProperty();
                 stage.show();
 
-                stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-                stage.close();
+                // Close Login Window
+                Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                currentStage.close();
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
-
-
-        }else{
+        } else {
+            // Login Failed
             lblAddedSuccess.setText("Invalid Username or Password");
         }
 
