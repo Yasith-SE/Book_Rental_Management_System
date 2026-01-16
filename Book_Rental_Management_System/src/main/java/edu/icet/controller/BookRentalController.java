@@ -183,8 +183,6 @@ public class BookRentalController {
 
     }
 
-
-
     @FXML
     void searchTextFieldOnAction(ActionEvent event) {
 
@@ -200,19 +198,14 @@ public class BookRentalController {
         }
 
     }
-
     @FXML
     void searchTextFieldOnKeyRelease(KeyEvent event) {
         searchTextFieldOnAction(null);
 
     }
-
     @FXML
     void btnViewTableOnAction(ActionEvent event) {
 
     }
-
-
-
 
 }
