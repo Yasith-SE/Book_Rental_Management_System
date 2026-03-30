@@ -46,6 +46,9 @@ public class CustomerRegistrationFormController implements Initializable {
     private Label lblAge;
 
     @FXML
+    private Label lblSuccessfullyAdded;
+
+    @FXML
     private JFXTextField txtEmailAddress;
 
     @FXML
@@ -78,21 +81,10 @@ public class CustomerRegistrationFormController implements Initializable {
         //check all fields are filled
         if(txtNIC.getText().isEmpty() || txtName.getText().isEmpty()        || dateChooserTxt.getValue() == null    ||
            txtAge.getText().isEmpty() || txtPhoneNumber.getText().isEmpty() || txtEmailAddress.getText().isEmpty()  || txtHomeAddress.getText().isEmpty()) {
-            try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/popUpMessages/CustomerRegistrationAllFillPopUp.fxml"))));
-                stage.resizableProperty();
-                stage.show();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            showAlert(Alert.AlertType.WARNING, "Input Error", "Complete all in the form.");
+
         }else if(customerRegistrationService.existByNIC(txtNIC.getText())){
-                try {
-                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/popUpMessages/CustomerIDDublicateView.fxml"))));
-                    stage.resizableProperty();
-                    stage.show();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+            showAlert(Alert.AlertType.WARNING, "Input Error", "This Nic already exist !");
 
         }else {
 
@@ -106,12 +98,23 @@ public class CustomerRegistrationFormController implements Initializable {
                     txtHomeAddress.getText(),
                     checkIfStudent
             ));
+            txtNIC.clear();
+            txtName.clear();
+            dateChooserTxt.setValue(null);
+            txtAge.clear();
+            txtPhoneNumber.clear();
+            txtEmailAddress.clear();
+            txtHomeAddress.clear();
+
+            showAlert(Alert.AlertType.CONFIRMATION, "Input Correct", "Successfully saved.");
 
 
 
         }
 
     }
+
+
 
     @FXML
     void btnViewTableOnAction(ActionEvent event) {
@@ -137,13 +140,15 @@ public class CustomerRegistrationFormController implements Initializable {
                 throw new RuntimeException(e);
             }
         }else{
-            try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/popUpMessages/NICNotFoundPopupView.fxml"))));
-                stage.show();
-                stage.resizableProperty();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            txtNIC.clear();
+            txtName.clear();
+            dateChooserTxt.setValue(null);
+            txtAge.clear();
+            txtPhoneNumber.clear();
+            txtEmailAddress.clear();
+            txtHomeAddress.clear();
+
+            showAlert(Alert.AlertType.WARNING, "Input Error", "This NIC number is already deleted.");
         }
     }
 
@@ -154,13 +159,7 @@ public class CustomerRegistrationFormController implements Initializable {
         if(txtNIC.getText().isEmpty() || txtName.getText().isEmpty() || dateChooserTxt.getValue() == null ||
            txtAge.getText().isEmpty() || txtPhoneNumber.getText().isEmpty() || txtEmailAddress.getText().isEmpty() ||
         txtHomeAddress.getText().isEmpty()){
-            try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/popUpMessages/CustomerUpdatePopup.fxml"))));
-                stage.show();
-                stage.resizableProperty();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            showAlert(Alert.AlertType.WARNING, "Input Error", "Update in the form.");
 
         }else {
             customerRegistrationService.updateCustomer(new CustomerRegistration(
@@ -173,6 +172,17 @@ public class CustomerRegistrationFormController implements Initializable {
                     txtHomeAddress.getText(),
                     checkStudent
             ));
+            txtNIC.clear();
+            txtName.clear();
+            dateChooserTxt.setValue(null
+            );
+            txtAge.clear();
+            txtPhoneNumber.clear();
+            txtEmailAddress.clear();
+            txtHomeAddress.clear();
+
+
+            showAlert(Alert.AlertType.CONFIRMATION, "Updated", "Updated complete");
 
         }
     }
@@ -208,6 +218,14 @@ public class CustomerRegistrationFormController implements Initializable {
 
         dateChooserTxt.setOnAction(event -> setdobAge());
 
+    }
+
+    private void showAlert(Alert.AlertType type, String title, String msg) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
     }
 
 

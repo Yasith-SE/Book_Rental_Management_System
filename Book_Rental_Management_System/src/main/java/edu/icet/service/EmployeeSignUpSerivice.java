@@ -8,5 +8,5 @@ public interface EmployeeSignUpSerivice {
 
     int getNextEmployeeId();
 
-
+    boolean isEmailExists(String email);
 }

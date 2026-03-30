@@ -81,8 +81,10 @@ public class UserEmployeeSignUpController implements Initializable {
         } else if(!txtEmployeePassword.getText().equals(txtEmployeeConfirmPassword.getText())) {
             lblErrorPasswordConfirm.setText("Passwords do not match");
 
-        } else {
-            //Pass 'plainPassword' to the service. The Service will handle encryption.
+        } else if(employeeSignUpSerivice.isEmailExists(txtEmployeEmail.getText())){
+            lblErrorPasswordConfirm.setText("Email is already exist !");
+
+        }else{
             employeeSignUpSerivice.addEmployeeSignUp(new Employee(
                     Integer.parseInt(txtEmployeeId.getText()),
                     txtEmployeeName.getText(),
@@ -93,6 +95,8 @@ public class UserEmployeeSignUpController implements Initializable {
 
             lblErrorPasswordConfirm.setText("Passwords Correct");
             lblAddedSuccess.setText("Added Successfully");
+
+
         }
     }
 

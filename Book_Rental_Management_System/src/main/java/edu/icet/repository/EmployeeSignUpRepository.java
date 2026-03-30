@@ -9,4 +9,6 @@ public interface EmployeeSignUpRepository {
     void employeeSignUp(Employee employee) throws Exception;
 
     int getNextEmployeeId() throws SQLException;
+
+    boolean isEmailExists(String email) throws SQLException;
 }

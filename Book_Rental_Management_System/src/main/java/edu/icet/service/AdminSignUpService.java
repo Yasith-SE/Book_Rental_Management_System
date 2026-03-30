@@ -7,4 +7,6 @@ public interface AdminSignUpService {
     void addAdminSignUp(Admin admin);
 
     int getNextAdminId();
+
+    boolean isEmailExists(String email);
 }

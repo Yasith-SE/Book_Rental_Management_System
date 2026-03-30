@@ -45,4 +45,16 @@ public class EmployeeSignUpRepositoryImpl implements EmployeeSignUpRepository {
 
         return id;
     }
+    @Override
+    public boolean isEmailExists(String email) throws SQLException{
+
+        String Sql = "SELECT employeeEmail  FROM userEmployee WHERE employeeEmail = ? ";
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(Sql);
+        preparedStatement.setObject(1,email);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+         return resultSet.next();
+
+    }
 }
