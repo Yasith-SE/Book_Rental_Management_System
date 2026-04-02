@@ -4,12 +4,12 @@ import edu.icet.DBConnector.DBConnection;
 import edu.icet.model.BookRental;
 import edu.icet.model.BookRentalItem;
 import edu.icet.model.BookStore;
+import edu.icet.model.RentalTableModel;
 import edu.icet.repository.BookRentalRepository;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 
 public class BookRentalRepositoryImpl implements BookRentalRepository {
@@ -58,5 +58,30 @@ public class BookRentalRepositoryImpl implements BookRentalRepository {
 
             pst.executeUpdate();
         }
+    }
+    @Override
+    public ObservableList<RentalTableModel> getAllRentals() throws SQLException {
+        ObservableList<RentalTableModel> rentalList = FXCollections.observableArrayList();
+
+        // SQL query joining both tables
+        String sql = "SELECT r.rentalId, r.NIC, ri.bookId, r.issue_date, r.due_date, ri.rentalCost " +
+                "FROM rental r " +
+                "INNER JOIN rental_item ri ON r.rentalId = ri.rentalId";
+
+        Connection con = DBConnection.getInstance().getConnection();
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+            rentalList.add(new RentalTableModel(
+                    rs.getString("rentalId"),
+                    rs.getString("NIC"),
+                    rs.getString("bookId"),
+                    rs.getDate("issue_date").toLocalDate(),
+                    rs.getDate("due_date").toLocalDate(),
+                    rs.getDouble("rentalCost")
+            ));
+        }
+        return rentalList;
     }
 }

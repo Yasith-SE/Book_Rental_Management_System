@@ -92,6 +92,17 @@ public class UserEmployeeSignUpController implements Initializable {
                     txtEmployeEmail.getText(),
                     plainPassword
             ));
+            try {
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UserLogIn.fxml"))));
+                stage.resizableProperty();
+                stage.show();
+                stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                stage.close();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
 
             lblErrorPasswordConfirm.setText("Passwords Correct");
             lblAddedSuccess.setText("Added Successfully");

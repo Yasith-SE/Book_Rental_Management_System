@@ -2,6 +2,8 @@ package edu.icet.repository;
 
 import edu.icet.model.BookRental;
 import edu.icet.model.BookRentalItem;
+import edu.icet.model.RentalTableModel;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -15,4 +17,6 @@ public interface BookRentalRepository {
     void saveRentalItem(Connection con, String rentalId, BookRentalItem item) throws SQLException;
 
     void updateBookQty(Connection con, String bookId, int qty) throws SQLException;
+
+    ObservableList<RentalTableModel> getAllRentals() throws SQLException;
 }

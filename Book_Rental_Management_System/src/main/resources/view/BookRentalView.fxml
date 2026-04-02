@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: D:\ICET\Level 03 Java StandAlone Apps\Final-Project(Fx)\Book_Rental_Management_System\src\main\resources\view\images\Book Rental Frame.png;">
          <image>
-            <Image url="@images/Book%20Rental%20Frame.png" />
+            <Image url="@images/Book Rental Frame.png" />
          </image>
       </ImageView>
       <JFXTextField fx:id="txtRentalBookSearch" layoutX="155.0" layoutY="167.0" onAction="#searchTextFieldOnAction" onKeyReleased="#searchTextFieldOnKeyRelease" prefHeight="26.0" prefWidth="250.0" promptText="Enter BookId or Title" style="-fx-background-color: white;" />

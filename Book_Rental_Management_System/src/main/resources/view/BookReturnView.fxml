@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/Artboard%201.png" />
+            <Image url="@images/Artboard 1.png" />
          </image>
       </ImageView>
       <JFXTextField fx:id="txtRentalSearch" layoutX="94.0" layoutY="158.0" onAction="#txtRentalSearchOnAction" prefHeight="35.0" prefWidth="274.0" promptText=" Search Rental Id" style="-fx-background-color: white;" />

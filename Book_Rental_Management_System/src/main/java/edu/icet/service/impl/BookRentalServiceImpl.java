@@ -3,9 +3,12 @@ package edu.icet.service.impl;
 import edu.icet.DBConnector.DBConnection;
 import edu.icet.model.BookRental;
 import edu.icet.model.BookRentalItem;
+import edu.icet.model.RentalTableModel;
 import edu.icet.repository.BookRentalRepository;
 import edu.icet.repository.impl.BookRentalRepositoryImpl;
 import edu.icet.service.BookRentalService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -50,6 +53,15 @@ public class BookRentalServiceImpl implements BookRentalService {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+    }
+    @Override
+    public ObservableList<RentalTableModel> getAllRentals() {
+        try {
+            return bookRentalRepository.getAllRentals();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return FXCollections.observableArrayList();
         }
     }
 }
