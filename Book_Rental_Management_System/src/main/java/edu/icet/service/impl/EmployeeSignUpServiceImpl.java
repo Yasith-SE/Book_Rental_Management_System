@@ -36,4 +36,13 @@ public class EmployeeSignUpServiceImpl implements EmployeeSignUpSerivice {
         }
 
     }
+    @Override
+    public boolean isEmailExists(String email){
+        try {
+            return employeeSignUpRepository.isEmailExists(email);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

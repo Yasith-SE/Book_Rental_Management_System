@@ -43,6 +43,21 @@ public class AdminSignUpRepositoryImpl implements AdminSignUpRepository {
 
         return id;
     }
+    @Override
+    public boolean isEmailExists(String email) throws SQLException{
+        String Sql = "SELECT adminEmail FROM useradmin WHERE adminEmail = ? ";
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(Sql);
+        preparedStatement.setObject(1,email);
+
+
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        return resultSet.next();
+
+    }
 
 }
 

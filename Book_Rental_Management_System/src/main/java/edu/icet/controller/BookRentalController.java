@@ -14,10 +14,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -173,10 +178,15 @@ public class BookRentalController {
     }
     @FXML
     void btnCancelBookOrderOnAction(ActionEvent event) {
+        txtBookId.clear();
+        txtBookTitle.clear();
+        txtBookQuantity.clear();
+        txtBookRentalCost.clear();
+        txtRentalBookSearch.clear();
+
+        lblValidationMessage.setText("All Cleared");
 
     }
-
-
 
     @FXML
     void searchTextFieldOnAction(ActionEvent event) {
@@ -193,19 +203,28 @@ public class BookRentalController {
         }
 
     }
-
     @FXML
     void searchTextFieldOnKeyRelease(KeyEvent event) {
         searchTextFieldOnAction(null);
 
     }
-
     @FXML
     void btnViewTableOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ViewBookRentalTable.fxml"));
+            Parent root = loader.load();
 
+            Stage stage = new Stage();
+            stage.setTitle("View Rental Table");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false); // Optional: prevents the user from resizing the window
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            lblValidationMessage.setText("Error loading the table view.");
+        }
     }
-
-
-
 
 }

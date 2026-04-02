@@ -70,6 +70,18 @@ public class LibraryDashboardController {
 
     @FXML
     void btnReturnBooksOnAction(ActionEvent event) {
+        try {
+            stage.setScene((new Scene(FXMLLoader.load(getClass().getResource("/view/BookReturnView.fxml")))));
+            stage.resizableProperty();
+            stage.close();
+            stage.show();
+
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 

@@ -9,4 +9,7 @@ public interface AdminSignUpRepository {
     void adminSignUp(Admin admin) throws SQLException;
 
     int getNextAdminID() throws SQLException;
+
+    boolean isEmailExists(String email) throws SQLException;
+
 }

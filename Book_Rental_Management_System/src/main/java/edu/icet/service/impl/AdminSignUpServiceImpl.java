@@ -36,4 +36,14 @@ public class AdminSignUpServiceImpl implements AdminSignUpService {
 
 
     }
+    @Override
+    public boolean isEmailExists(String email){
+        try {
+            return adminSignUpRepository.isEmailExists(email);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 }

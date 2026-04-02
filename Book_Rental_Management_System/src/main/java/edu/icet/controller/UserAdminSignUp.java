@@ -81,7 +81,11 @@ public class UserAdminSignUp implements Initializable {
         } else if(!txtAdminPassword.getText().equals(txtAdminConfirmPassword.getText())) {
             lblErrorPassword.setText("Passwords do not match");
 
-        } else {
+        } else if (adminSignUpService.isEmailExists(txtAdminEmail.getText())){
+            lblErrorPassword.setText("Email is already exist !");
+
+
+        }else {
             //Send plain password to service
             adminSignUpService.addAdminSignUp(new Admin(
                     Integer.parseInt(txtAdminId.getText()),

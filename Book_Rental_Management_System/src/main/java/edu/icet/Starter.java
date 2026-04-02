@@ -13,7 +13,7 @@ public class Starter extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/DashboardView.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UserLogIn.fxml"))));
         stage.resizableProperty();
         stage.show();
 

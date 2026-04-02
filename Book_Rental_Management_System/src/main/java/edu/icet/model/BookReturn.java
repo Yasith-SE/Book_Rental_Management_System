@@ -1,8 +1,6 @@
 package edu.icet.model;
 
-
 import lombok.*;
-
 import java.time.LocalDate;
 
 @Getter
@@ -10,29 +8,29 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-
-public class BookReturn {
+public class BookReturn{
 
     private String rentalId;
 
     private String bookId;
+
     private String bookTitle;
 
-    private String NIC;
+    private String customerId;
+
     private String customerName;
 
-    private LocalDate isseuDate;
+    private LocalDate issueDate;
+
     private LocalDate dueDate;
 
     private LocalDate returnDate;
 
-    private String bookReturned;
-    private String bookNotReturned;
+    private String status;
 
-    private LocalDate overDueDate;
-    private LocalDate finePerDay;
+    private int overDueDays;
 
-    private double totalFine;
+    private Double finePerDay;
 
-
+    private Double totalFine;
 }

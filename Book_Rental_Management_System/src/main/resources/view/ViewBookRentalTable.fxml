@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="396.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.ViewBookRentalTableController">
+   <children>
+      <ImageView fitHeight="402.0" fitWidth="634.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Book Rental Frame.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="74.0" layoutY="90.0" prefHeight="219.0" prefWidth="536.0">
+        <columns>
+          <TableColumn fx:id="tblRentalId" prefWidth="75.0" text="Rental Id" />
+          <TableColumn fx:id="tblRentalBookId" prefWidth="75.0" text="BookID" />
+            <TableColumn fx:id="tblRentalNic" prefWidth="75.0" text="NIC" />
+            <TableColumn fx:id="tblRentalDate" prefWidth="119.20001220703125" text="ReturnDate" />
+            <TableColumn fx:id="tblRentalOverduedate" prefWidth="95.19998168945312" text="OverDuedate" />
+            <TableColumn fx:id="tblFinalAmount" prefWidth="94.39996337890625" text="Final Amount" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="449.0" layoutY="334.0" onAction="#btnReloadOnAction" prefHeight="30.0" prefWidth="104.0" style="-fx-background-color: #2F4940;" text="Reload" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
